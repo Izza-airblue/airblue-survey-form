@@ -82,7 +82,7 @@ export default function Home() {
               height={250}
               className="w-full h-full object-cover"
             />
-            <div className="absolute bottom-0 left-0 p-4 bg-black/40 w-full">
+            <div className="absolute bottom-0 left-0 p-4  w-full">
               <h2 className="text-white font-semibold text-lg">Sales Feedback</h2>
             </div>
           </div>
