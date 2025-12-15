@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="relative w-full h-screen">
+       <main className="relative w-full h-screen">
 
       {/* Fullscreen Banner */}
       <div className="absolute inset-0">
         <Image
-          src="/Surveys/main_banner.jpg"
+          src="/Surveys/main_banner1.png"
           alt="Survey Banner"
           fill
           className="object-cover"
@@ -16,8 +16,20 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Overlay Text */}
+      {/* Language Buttons */}
+      <div className="absolute top-4 right-4 flex gap-2 z-20">
+        <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+          English
+        </button>
+        <button className="px-4 py-2 bg-white text-gray-800 rounded hover:bg-gray-200 transition">
+          اردو
+        </button>
+      </div>
+
+      {/* Overlay Text & Cards */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+
+        {/* Main Heading */}
         <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
           Thank you for flying with us
         </h1>
@@ -72,7 +84,6 @@ export default function Home() {
 
         </div>
       </div>
-
     </main>
   );
 }
