@@ -9,7 +9,6 @@ export default function Home() {
     document.documentElement.dir = lang === "ur" ? "rtl" : "ltr";
   }, [lang]);
 
-
   return (
       <main className="relative w-full h-screen">
 
