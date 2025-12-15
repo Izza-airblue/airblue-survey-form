@@ -74,18 +74,23 @@ export default function Home() {
         <div className="mt-10 flex flex-col sm:flex-row gap-6 justify-center w-full max-w-5xl">
           
           {/* Sales Feedback Card */}
-          <div className="bg-white rounded-lg overflow-hidden shadow-lg w-full sm:w-64 hover:scale-105 transform transition">
-            <Image
-              src="/Surveys/sales_feedback.png"
-              alt="Sales Feedback"
-              width={400}
-              height={250}
-              className="object-cover"
-            />
-            <div className="p-4">
-              <h2 className="text-gray-800 font-semibold text-lg">Sales Feedback</h2>
-            </div>
+       <div className="relative rounded-lg overflow-hidden w-full sm:w-64 hover:scale-105 transform transition shadow-lg">
+          {/* Full-size Image */}
+          <Image
+            src="/Surveys/sales_feedback.png"
+            alt="Sales Feedback"
+            width={400}
+            height={250}
+            className="w-full h-full object-cover"
+          />
+
+          {/* Overlay Text */}
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <h2 className="text-white font-semibold text-lg text-center px-2">
+              Sales Feedback
+            </h2>
           </div>
+        </div>
 
           {/* Meal Feedback Card */}
           <div className="bg-white rounded-lg overflow-hidden shadow-lg w-full sm:w-64 hover:scale-105 transform transition">
