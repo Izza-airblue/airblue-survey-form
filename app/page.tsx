@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-      <div className="banner">
+    <div className="relative w-full h-[400px]">
       <Image
         src="/Surveys/main_banner.png"
         alt="Survey Banner"
         fill
+        className="object-cover"
         priority
-        style={{ objectFit: 'cover' }}
       />
     </div>
   );
