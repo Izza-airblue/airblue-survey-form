@@ -18,10 +18,21 @@ export default function Home() {
 
       {/* Language Buttons */}
       <div className="absolute top-4 right-4 flex gap-2 z-20">
-        <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+       <button
+          className="px-4 py-2 text-white rounded hover:opacity-90 transition"
+          style={{
+            background: "linear-gradient(to right, #1E4560, #3D8EC6)"
+          }}
+        >
           English
         </button>
-        <button className="px-4 py-2 bg-white text-gray-800 rounded hover:bg-gray-200 transition">
+        <button
+          className="px-4 py-2 rounded transition hover:bg-gray-300"
+          style={{
+            backgroundColor: "#E5E7EB",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)" // 5% opacity black
+          }}
+        >
           اردو
         </button>
       </div>
