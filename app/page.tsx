@@ -63,10 +63,10 @@ export default function Home() {
       <div className="relative z-10 flex flex-col items-center  justify-center   h-full px-4">
 
         {/* Main Heading */}
-        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl  text-center justify-center items-center ">
+        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl  text-center">
           Thank you for flying with us
         </h1>
-        <p className="text-white text-lg sm:text-xl md:text-2xl mt-2  text-center">
+        <p className="text-white text-lg sm:text-xl md:text-2xl mt-2 text-center">
           Shaping Our Tomorrow, Together.
         </p>
 
