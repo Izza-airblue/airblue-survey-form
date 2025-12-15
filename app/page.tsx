@@ -2,8 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-     <section className="relative w-full
-      h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
+    <section className="relative w-full h-screen">
       
       <Image
         src="/Surveys/main_banner.png"
@@ -11,12 +10,16 @@ export default function Home() {
         fill
         priority
         className="object-cover"
-        sizes="
-          (max-width: 640px) 100vw,
-          (max-width: 1024px) 100vw,
-          100vw
-        "
+        sizes="100vw"
       />
+
+      {/* Optional overlay */}
+      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+          Airblue Survey
+        </h1>
+      </div>
+
     </section>
   );
 }
