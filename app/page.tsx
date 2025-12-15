@@ -7,7 +7,7 @@ export default function Home() {
       {/* Fullscreen Banner */}
       <div className="absolute inset-0">
         <Image
-          src="/Surveys/main_banner.png"
+          src="/Surveys/main_banner.jpg"
           alt="Survey Banner"
           fill
           className="object-cover"
