@@ -60,13 +60,13 @@ export default function Home() {
   </div>
 
       {/* Overlay Text & Cards */}
-      <div className="relative z-10 flex flex-col  h-full px-4">
+      <div className="relative z-10 flex flex-col items-center  h-full px-4">
 
         {/* Main Heading */}
         <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl  text-center justify-center items-center ">
           Thank you for flying with us
         </h1>
-        <p className="text-white text-lg sm:text-xl md:text-2xl mt-2  text-center justify-center items-center ">
+        <p className="text-white text-lg sm:text-xl md:text-2xl mt-2  text-center justify-center ">
           Shaping Our Tomorrow, Together.
         </p>
 
