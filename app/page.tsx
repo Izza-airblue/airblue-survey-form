@@ -19,22 +19,28 @@ export default function Home() {
       {/* Language Buttons */}
       <div className="absolute top-4 right-4 flex gap-2 z-20">
        <button
-          className="px-4 py-2 text-white rounded hover:opacity-90 transition"
-          style={{
-            background: "linear-gradient(to right, #1E4560, #3D8EC6)"
-          }}
-        >
-          English
-        </button>
-        <button
-          className="px-4 py-2 rounded transition hover:bg-gray-300"
-          style={{
-            backgroundColor: "#E5E7EB",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)" // 5% opacity black
-          }}
-        >
-          اردو
-        </button>
+        className="text-white rounded transition hover:opacity-90 flex items-center justify-center"
+        style={{
+          width: "90px",
+          height: "38px",
+          background: "linear-gradient(to right, #1E4560, #3D8EC6)"
+        }}
+      >
+        English
+      </button>
+
+      {/* Urdu Button with Shadow */}
+      <button
+        className="rounded transition flex items-center justify-center hover:bg-gray-300"
+        style={{
+          width: "90px",
+          height: "38px",
+          backgroundColor: "#E5E7EB",
+          boxShadow: "0 4px 6px rgba(0,0,0,0.05)"
+        }}
+      >
+        اردو
+      </button>
       </div>
 
       {/* Overlay Text & Cards */}
