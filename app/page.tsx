@@ -83,7 +83,7 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 p-4  w-full">
-              <h2 className="text-white text-lg">Sales Feedback</h2>
+              <h2 className="text-white">Sales Feedback</h2>
             </div>
           </div>
 
@@ -97,7 +97,7 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 p-4  w-full">
-              <h2 className="text-white text-lg">Meal Feedback</h2>
+              <h2 className="text-white">Meal Feedback</h2>
             </div>
           </div>
 
@@ -111,7 +111,7 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 p-4 w-full">
-              <h2 className="text-white text-lg">General Feedback</h2>
+              <h2 className="text-white">General Feedback</h2>
             </div>
           </div>
 
