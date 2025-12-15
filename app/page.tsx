@@ -71,7 +71,7 @@ export default function Home() {
         </p>
 
         {/* Feedback Cards */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-6 justify-center w-full max-w-5xl">
+        <div className="mt-10 flex flex-col sm:flex-row gap-6 w-full max-w-5xl">
           
           {/* Sales Feedback Card */}
           <div className="relative rounded-lg overflow-hidden w-full sm:w-64 hover:scale-105 transform transition shadow-lg">
