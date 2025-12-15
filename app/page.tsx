@@ -24,8 +24,8 @@ export default function Home() {
       <Image
         src="/Surveys/airblue.svg"
         alt="Airblue Logo"
-        width={96} // adjust if needed
-        height={24} // adjust proportionally
+        width={189} // adjust if needed
+        height={38} // adjust proportionally
         className="object-contain"
       />
     </div>
