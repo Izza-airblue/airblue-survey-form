@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-export default function HomeBanner() {
+export default function Home() {
+  
   const [lang, setLang] = useState<"en" | "ur">("en");
 
   useEffect(() => {
     document.documentElement.dir = lang === "ur" ? "rtl" : "ltr";
   }, [lang]);
 
-export default function Home() {
+
   return (
       <main className="relative w-full h-screen">
 
