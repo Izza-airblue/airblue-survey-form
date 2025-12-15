@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  
+
   const [lang, setLang] = useState<"en" | "ur">("en");
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Home() {
       {/* Fullscreen Banner */}
       <div className="absolute inset-0">
         <Image
-          src="/Surveys/main_banner.png"
+          src="/Surveys/main_banner1.png"
           alt="Survey Banner"
           fill
           className="object-cover"
