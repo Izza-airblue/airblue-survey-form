@@ -22,7 +22,7 @@ export default function Home() {
     {/* Airblue Logo */}
     <div className="w-24 h-auto">
       <Image
-        src="/airblue.svg"
+        src="/Surveys/airblue.svg"
         alt="Airblue Logo"
         width={96} // adjust if needed
         height={24} // adjust proportionally
