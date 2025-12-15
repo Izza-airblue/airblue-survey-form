@@ -16,9 +16,24 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Language Buttons */}
-      <div className="absolute top-4 right-4 flex gap-2 z-20">
-       <button
+  {/* Top Bar: Logo + Language Buttons */}
+  <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-20 px-4">
+    
+    {/* Airblue Logo */}
+    <div className="w-24 h-auto">
+      <Image
+        src="/airblue.svg"
+        alt="Airblue Logo"
+        width={96} // adjust if needed
+        height={24} // adjust proportionally
+        className="object-contain"
+      />
+    </div>
+
+    {/* Language Buttons */}
+    <div className="flex gap-2">
+      {/* English Button with Gradient */}
+      <button
         className="text-white rounded transition hover:opacity-90 flex items-center justify-center"
         style={{
           width: "90px",
@@ -41,7 +56,8 @@ export default function Home() {
       >
         اردو
       </button>
-      </div>
+    </div>
+  </div>
 
       {/* Overlay Text & Cards */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
