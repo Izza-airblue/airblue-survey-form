@@ -7,7 +7,6 @@ export interface TranslationSet {
   meal: string;
   general: string;
 }
-
 export const translations: Record<Language, TranslationSet> = {
   en: {
     heading: "Thank you for flying with us",
