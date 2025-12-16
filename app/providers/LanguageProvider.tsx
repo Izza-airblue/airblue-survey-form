@@ -38,7 +38,6 @@ export function LanguageProvider({ children, lang }: Props) {
     setLanguage(newLang);
     router.push(newPath);
   };
-
   return (
     <LanguageContext.Provider value={{ language, switchLanguage }}>
       {children}
