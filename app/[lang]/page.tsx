@@ -4,8 +4,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "../providers/LanguageProvider";
 import { translations } from "../lib/translations";
+import { redirect } from "next/navigation";
 
 export default function Home() {
+   redirect("/en");
+   
   const router = useRouter();
   const { language, switchLanguage } = useLanguage();
   const t = translations[language];
