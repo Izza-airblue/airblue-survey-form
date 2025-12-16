@@ -71,7 +71,7 @@ export default function Home() {
         </p>
 
         {/* Feedback Cards */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-6 w-full max-w-5xl">
+        <div className="mt-10 flex flex-col sm:flex-row gap-6 justify-center w-full max-w-5xl">
           
           {/* Sales Feedback Card */}
           <div className="relative rounded-lg overflow-hidden w-full sm:w-64 hover:scale-105 transform transition shadow-lg">
@@ -83,7 +83,7 @@ export default function Home() {
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 p-4  w-full">
-              <h2 className="text-white">Sales Feedback</h2>
+              <h2 className="text-white text-lg">Sales Feedback</h2>
             </div>
           </div>
 
