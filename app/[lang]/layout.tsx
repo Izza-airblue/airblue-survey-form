@@ -1,11 +1,22 @@
 import type { ReactNode } from "react";
 import { LanguageProvider } from "../providers/LanguageProvider";
 
-export default function LangLayout({ children, params }: { children: React.ReactNode; params: { lang: string } }) {
+interface LangLayoutProps {
+  children: ReactNode;
+  params: { lang: string }; // always string here
+}
+
+export default function LangLayout({ children, params }: LangLayoutProps) {
+  // Narrow the language to allowed values
   const lang = params.lang === "ur" ? "ur" : "en";
+
   return (
     <html lang={lang} dir={lang === "ur" ? "rtl" : "ltr"}>
-      <body>{children}</body>
+      <body>
+        <LanguageProvider lang={lang}>
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }
