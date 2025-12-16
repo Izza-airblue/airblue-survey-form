@@ -11,9 +11,9 @@ export default function Home() {
   const t = translations[language];
 
   const cards = [
-    { title: t.sales, img: "/Surveys/sales_feedback.png", slug: "sales" },
-    { title: t.meal, img: "/Surveys/meal_feedback.png", slug: "meal" },
-    { title: t.general, img: "/Surveys/general_feedback.png", slug: "general" }
+    { title: t.sales, img: "/surveys/sales_feedback.png", slug: "sales" },
+    { title: t.meal, img: "/surveys/meal_feedback.png", slug: "meal" },
+    { title: t.general, img: "/surveys/general_feedback.png", slug: "general" }
   ];
 
   return (
