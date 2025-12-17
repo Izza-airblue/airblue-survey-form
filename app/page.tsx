@@ -5,21 +5,30 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 
-const translations = {
+const translations: Record<
+  Language,
+  {
+    heading: string;
+    tagline: string;
+    sales: string;
+    meal: string;
+    general: string;
+  }
+> = {
   en: {
     heading: "Thank you for flying with us",
     tagline: "Shaping Our Tomorrow, Together.",
     sales: "Sales Feedback",
     meal: "Meal Feedback",
-    general: "General Feedback"
+    general: "General Feedback",
   },
   ur: {
     heading: "ہمارے ساتھ سفر کرنے کا شکریہ",
     tagline: "کل کو بہتر بنانے کے لیے، مل کر۔",
     sales: "فروخت سے متعلق رائے",
     meal: "کھانے سے متعلق رائے",
-    general: "عمومی رائے"
-  }
+    general: "عمومی رائے",
+  },
 };
 
 export default function Home() {
