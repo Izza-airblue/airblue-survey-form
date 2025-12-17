@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+type Language = "en" | "ur";
 
 const translations: Record<
   Language,
@@ -32,33 +33,34 @@ const translations: Record<
 };
 
 export default function Home() {
-
-   const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState<Language>("en");
   const router = useRouter();
 
-const t = translations[lang] || translations.en;
+  const t = translations[lang];
 
   const cards = [
     {
       title: t.sales,
       img: "/Surveys/sales_feedback.png",
-      route: "/surveys/sales"
+      route: "/surveys/sales",
     },
     {
       title: t.meal,
       img: "/Surveys/meal_feedback.png",
-      route: "/surveys/meal"
+      route: "/surveys/meal",
     },
     {
       title: t.general,
       img: "/Surveys/general_feedback.png",
-      route: "/surveys/general"
-    }
+      route: "/surveys/general",
+    },
   ];
 
   return (
     <main
-      className={`relative min-h-screen ${lang === "ur" ? "rtl" : "ltr"}`}
+      className={`relative min-h-screen ${
+        lang === "ur" ? "rtl" : "ltr"
+      }`}
       dir={lang === "ur" ? "rtl" : "ltr"}
     >
       {/* Background */}
@@ -109,7 +111,6 @@ const t = translations[lang] || translations.en;
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-28 text-center">
-
         <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl">
           {t.heading}
         </h1>
@@ -120,7 +121,6 @@ const t = translations[lang] || translations.en;
 
         {/* Cards */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
-
           {cards.map((card, i) => (
             <div
               key={i}
@@ -143,7 +143,6 @@ const t = translations[lang] || translations.en;
               </div>
             </div>
           ))}
-
         </div>
       </div>
     </main>
