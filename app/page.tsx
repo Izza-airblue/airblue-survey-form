@@ -58,9 +58,7 @@ export default function Home() {
 
   return (
     <main
-      className={`relative min-h-screen ${
-        lang === "ur" ? "rtl" : "ltr"
-      }`}
+      className="relative min-h-screen"
       dir={lang === "ur" ? "rtl" : "ltr"}
     >
       {/* Background */}
@@ -75,8 +73,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Top Bar */}
-      <div className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-4 sm:px-6 py-4">
+      {/* Top Bar (FORCED LTR) */}
+      <div
+        className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-4 sm:px-6 py-4"
+        dir="ltr"
+      >
         <Image
           src="/Surveys/airblue.svg"
           alt="Airblue"
@@ -118,7 +119,7 @@ export default function Home() {
         <p className="text-white mt-2 text-lg sm:text-xl">
           {t.tagline}
         </p>
-          <br/><br/>
+
         {/* Cards */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
           {cards.map((card, i) => (
