@@ -73,7 +73,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Top Bar (FORCED LTR) */}
+      {/* Top Bar */}
       <div
         className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-4 sm:px-6 py-4"
         dir="ltr"
@@ -81,7 +81,7 @@ export default function Home() {
         <Image
           src="/Surveys/airblue.svg"
           alt="Airblue"
-          width={120}
+          width={150}
           height={40}
         />
 
