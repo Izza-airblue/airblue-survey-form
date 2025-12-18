@@ -46,7 +46,7 @@ export default function Home() {
     },
     {
       title: t.meal,
-      img: "/Surveys/meal_feedback.png",
+      img: "/Surveys/meals_feedback.png",
       route: "/surveys/meal",
     },
     {
