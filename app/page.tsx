@@ -41,7 +41,7 @@ export default function Home() {
   const cards = [
     {
       title: t.sales,
-      img: "/Surveys/sales_feedback.png",
+      img: "/Surveys/sale_feedback.png",
       route: "/surveys/sales",
     },
     {
