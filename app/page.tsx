@@ -51,7 +51,7 @@ export default function Home() {
     },
     {
       title: t.general,
-      img: "/Surveys/general_feedback.png",
+      img: "/Surveys/general_feedbacks.png",
       route: "/surveys/general",
     },
   ];
