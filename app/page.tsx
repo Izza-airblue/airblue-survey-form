@@ -121,7 +121,7 @@ export default function Home() {
         </p>
 
         {/* Cards */}
-        <div className="main_card_class mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
+        <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
           {cards.map((card, i) => (
             <div
               key={i}
@@ -135,7 +135,7 @@ export default function Home() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="main_card_class absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <h2 className="text-white text-lg">
                     {card.title}
