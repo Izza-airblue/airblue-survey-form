@@ -119,7 +119,7 @@ export default function Home() {
         <p className="text-white mt-2 text-lg sm:text-xl">
           {t.tagline}
         </p>
-
+        <br/><br/>
         {/* Cards */}
         <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
           {cards.map((card, i) => (
