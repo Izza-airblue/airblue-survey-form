@@ -190,6 +190,21 @@ export default function SalesSurveyPage() {
                         ))}
                       </div>
 
+                   {/* Recommendation */}
+                  <div className="mb-4">
+                    <label className="form-label fw-semibold">
+                      9. How likely are you to recommend us?
+                    </label>
+                    <div className="d-flex gap-4">
+                      {["Not At All Likely", "Maybe", "Very Likely"].map((label) => (
+                        <div key={label} className="form-check">
+                          <input className="form-check-input" type="radio" name="recommend" />
+                          <label className="form-check-label">{label}</label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
                       <textarea
                         className="form-control"
                         rows={4}
