@@ -54,12 +54,6 @@ export default function SalesSurveyPage() {
                   <input type="email" className="form-control form-control-lg" />
                 </div>
 
-                
-                <div className="col-md-4">
-                  <label className="form-label fw-semibold">Email ID</label>
-                  <input type="email" className="form-control form-control-lg" />
-                </div>
-
                 <div className="col-md-4">
                   <label className="form-label fw-semibold">Flight No</label>
                   <input className="form-control form-control-lg" />
@@ -79,7 +73,7 @@ export default function SalesSurveyPage() {
                   <label className="form-label fw-semibold">Occupation</label>
                   <input className="form-control form-control-lg" />
                 </div>
-                
+
               </div>
             </div>
           </div>
