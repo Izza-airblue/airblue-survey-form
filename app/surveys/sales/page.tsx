@@ -11,6 +11,7 @@ const ratingOptions = [
 ] as const;
 
 export default function SalesSurveyPage() {
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
   const [ratings, setRatings] = useState<Record<number, RatingValue>>({});
 
   const questions = [
@@ -22,6 +23,9 @@ export default function SalesSurveyPage() {
     "8. How satisfied were you with your flight today?",
   ];
 
+  const toggle = (id: string) =>
+    setOpenAccordion(openAccordion === id ? null : id);
+
   return (
     <main className="container py-5">
       <div className="row justify-content-center">
@@ -31,209 +35,122 @@ export default function SalesSurveyPage() {
           <div className="card mb-4 shadow-sm">
             <div
               className="card-header text-white"
-              style={{ background: "linear-gradient(90deg, #2C567E, #5B93C9)" }}
+              style={{ background: "linear-gradient(90deg,#2C567E,#5B93C9)" }}
             >
               <h5 className="mb-0">Passenger Information</h5>
             </div>
-
             <div className="card-body">
               <div className="row g-4">
                 <div className="col-md-4">
-                  <label className="form-label fw-semibold">
-                    PNR <span className="text-danger">*</span>
-                  </label>
+                  <label className="form-label fw-semibold">PNR *</label>
                   <input className="form-control form-control-lg" />
                 </div>
-
                 <div className="col-md-4">
-                  <label className="form-label fw-semibold">
-                    Contact No <span className="text-danger">*</span>
-                  </label>
+                  <label className="form-label fw-semibold">Contact No *</label>
                   <input className="form-control form-control-lg" />
                 </div>
-
                 <div className="col-md-4">
-                  <label className="form-label fw-semibold">Email ID</label>
+                  <label className="form-label fw-semibold">Email</label>
                   <input type="email" className="form-control form-control-lg" />
-                </div>
-
-                <div className="col-md-4">
-                  <label className="form-label fw-semibold">Flight No</label>
-                  <input className="form-control form-control-lg" />
-                </div>
-
-                <div className="col-md-4">
-                  <label className="form-label fw-semibold">Gender</label>
-                  <select className="form-select form-select-lg">
-                    <option value="">Please choose...</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Prefer not to say</option>
-                  </select>
-                </div>
-
-                <div className="col-md-4">
-                  <label className="form-label fw-semibold">Occupation</label>
-                  <input className="form-control form-control-lg" />
                 </div>
               </div>
             </div>
           </div>
 
           {/* Accordion */}
-          <div className="accordion" id="surveyAccordion">
+          {[
+            { id: "meal", title: "Meal Survey" },
+            { id: "sales", title: "Sales Survey" },
+            { id: "general", title: "General Survey" },
+          ].map(({ id, title }) => (
+            <div key={id} className="card mb-3 shadow-sm">
+              <button
+                type="button"
+                onClick={() => toggle(id)}
+                className="btn text-start fw-semibold"
+                style={{ padding: "16px" }}
+              >
+                {title}
+              </button>
 
-            {/* Meal Survey */}
-            <div className="accordion-item mb-3 shadow-sm">
-              <h2 className="accordion-header">
-                <button
-                  type="button"
-                  className="accordion-button collapsed fw-semibold"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#mealSurvey"
-                >
-                  Meal Survey
-                </button>
-              </h2>
-              <div id="mealSurvey" className="accordion-collapse collapse">
-                <div className="accordion-body">
-                  <select className="form-select mb-3">
-                    <option>Please choose...</option>
-                    <option>Excellent</option>
-                    <option>Good</option>
-                    <option>Average</option>
-                    <option>Poor</option>
-                  </select>
-                  <textarea className="form-control" rows={3} />
-                </div>
-              </div>
-            </div>
+              {openAccordion === id && (
+                <div className="card-body border-top">
 
-            {/* Sales Survey */}
-            <div className="accordion-item mb-3 shadow-sm">
-              <h2 className="accordion-header">
-                <button
-                  type="button"
-                  className="accordion-button collapsed fw-semibold"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#salesSurvey"
-                >
-                  Sales Survey
-                </button>
-              </h2>
-              <div id="salesSurvey" className="accordion-collapse collapse">
-                <div className="accordion-body">
-                  <select className="form-select mb-3">
-                    <option>Please choose...</option>
-                    <option>Excellent</option>
-                    <option>Good</option>
-                    <option>Average</option>
-                    <option>Poor</option>
-                  </select>
-                  <textarea className="form-control" rows={3} />
-                </div>
-              </div>
-            </div>
-
-            {/* General Survey */}
-            <div className="accordion-item mb-3 shadow-sm">
-              <h2 className="accordion-header">
-                <button
-                  type="button"
-                  className="accordion-button collapsed fw-semibold"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#generalSurvey"
-                >
-                  General Survey
-                </button>
-              </h2>
-
-              <div id="generalSurvey" className="accordion-collapse collapse">
-                <div className="accordion-body">
-
-                  {/* Q1 & Q2 */}
-                  <div className="row g-4 mb-4">
-                    <div className="col-md-6">
-                      <label className="form-label fw-semibold">
-                        1. How did you purchase your ticket?
-                      </label>
-                      <select className="form-select">
-                        <option>Please Choose...</option>
-                        <option>Website</option>
-                        <option>Mobile App</option>
-                        <option>Travel Agent</option>
-                        <option>Call Center</option>
+                  {id === "meal" && (
+                    <>
+                      <select className="form-select mb-3">
+                        <option>Please choose...</option>
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Average</option>
+                        <option>Poor</option>
                       </select>
-                    </div>
+                      <textarea className="form-control" rows={3} />
+                    </>
+                  )}
 
-                    <div className="col-md-6">
-                      <label className="form-label fw-semibold">
-                        2. How did you hear about us?
-                      </label>
-                      <select className="form-select">
-                        <option>Please Choose...</option>
-                        <option>Social Media</option>
-                        <option>Website</option>
-                        <option>Friend / Family</option>
-                        <option>Advertisement</option>
+                  {id === "sales" && (
+                    <>
+                      <select className="form-select mb-3">
+                        <option>Please choose...</option>
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Average</option>
+                        <option>Poor</option>
                       </select>
-                    </div>
-                  </div>
+                      <textarea className="form-control" rows={3} />
+                    </>
+                  )}
 
-                  {/* Emoji Ratings */}
-                  <div className="row g-4 mb-4">
-                    {questions.map((question, index) => (
-                      <div key={index} className="col-md-6">
-                        <label className="form-label fw-semibold">{question}</label>
+                  {id === "general" && (
+                    <>
+                      <div className="row g-4 mb-4">
+                        {questions.map((question, index) => (
+                          <div key={index} className="col-md-6">
+                            <label className="form-label fw-semibold">
+                              {question}
+                            </label>
 
-                        <div className="d-flex gap-4 mt-2">
-                          {ratingOptions.map((option) => {
-                            const selected = ratings[index] === option.value;
-
-                            return (
-                              <div
-                                key={option.value}
-                                onClick={() =>
-                                  setRatings({ ...ratings, [index]: option.value })
-                                }
-                                className={`text-center p-3 rounded ${
-                                  selected ? "border border-primary shadow-sm" : "border"
-                                }`}
-                                style={{ cursor: "pointer", minWidth: 80 }}
-                              >
-                                <div style={{ fontSize: 28 }}>{option.emoji}</div>
-                                <small>{option.label}</small>
-                              </div>
-                            );
-                          })}
-                        </div>
+                            <div className="d-flex gap-3 mt-2">
+                              {ratingOptions.map((option) => (
+                                <div
+                                  key={option.value}
+                                  onClick={() =>
+                                    setRatings({
+                                      ...ratings,
+                                      [index]: option.value,
+                                    })
+                                  }
+                                  className={`p-3 rounded border text-center ${
+                                    ratings[index] === option.value
+                                      ? "border-primary shadow"
+                                      : ""
+                                  }`}
+                                  style={{ cursor: "pointer", minWidth: 80 }}
+                                >
+                                  <div style={{ fontSize: 28 }}>
+                                    {option.emoji}
+                                  </div>
+                                  <small>{option.label}</small>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
 
-                  {/* Recommendation */}
-                  <div className="mb-4">
-                    <label className="form-label fw-semibold">
-                      9. How likely are you to recommend us?
-                    </label>
-                    <div className="d-flex gap-4">
-                      {["Not At All Likely", "Maybe", "Very Likely"].map((label) => (
-                        <div key={label} className="form-check">
-                          <input className="form-check-input" type="radio" name="recommend" />
-                          <label className="form-check-label">{label}</label>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Feedback */}
-                  <textarea className="form-control" rows={4} />
+                      <textarea
+                        className="form-control"
+                        rows={4}
+                        placeholder="Additional feedback..."
+                      />
+                    </>
+                  )}
                 </div>
-              </div>
+              )}
             </div>
-          </div>
+          ))}
 
-          {/* Submit */}
           <div className="text-center mt-4">
             <button className="btn btn-primary px-5 py-3">
               Submit Feedback
