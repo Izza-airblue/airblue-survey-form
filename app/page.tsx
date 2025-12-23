@@ -97,7 +97,7 @@ export default function Home() {
             English
           </button>
 
-          <button
+          <button style={{width:"70px"}}
             onClick={() => setLang("ur")}
             className={`px-4 py-2 rounded text-sm ${
               lang === "ur"
@@ -112,11 +112,11 @@ export default function Home() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-28 text-center">
-        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl">
+        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl" style={{fontSize:"55px", fontWeight:"700"}}>
           {t.heading}
         </h1>
 
-        <p className="text-white mt-2 text-lg sm:text-xl">
+        <p className="text-white mt-2 text-lg sm:text-xl" style={{fontSize:"30px", fontWeight:"400"}}>
           {t.tagline}
         </p>
         <br/><br/>
