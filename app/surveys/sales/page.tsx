@@ -47,6 +47,39 @@ export default function SalesSurveyPage() {
                     placeholder="Enter email id"
                   />
                 </div>
+                  {/* Row 2 */}
+                <div className="col-md-4">
+                  <label className="form-label fw-semibold">
+                    Flight No
+                  </label>
+                  <input
+                    className="form-control form-control-lg"
+                    placeholder="e.g. PA-203"
+                  />
+                </div>
+
+                <div className="col-md-4">
+                  <label className="form-label fw-semibold">
+                    Gender
+                  </label>
+                  <select className="form-select form-select-lg">
+                    <option value="">Please choose...</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Prefer not to say</option>
+                  </select>
+                </div>
+
+                <div className="col-md-4">
+                  <label className="form-label fw-semibold">
+                    Occupation
+                  </label>
+                  <input
+                    className="form-control form-control-lg"
+                    placeholder="Enter occupation"
+                  />
+                </div>
+                
               </div>
             </div>
           </div>
