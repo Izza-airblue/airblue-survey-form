@@ -1,115 +1,171 @@
 export default function SalesSurveyPage() {
   return (
-     <main className="container py-5">
+         <main className="container py-5">
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-9">
 
-          {/* Header */}
-          <div
-            className="p-4 rounded-top text-white"
-            style={{
-              background: "linear-gradient(90deg, #2C567E 0%, #5B93C9 100%)",
-            }}
-          >
-            <h4 className="mb-1 fw-semibold">Sales Feedback Survey</h4>
-            <p className="mb-0 opacity-75">
-              Help us improve your flying experience
-            </p>
-          </div>
-
-          {/* Form Card */}
-          <div className="border rounded-bottom p-4 bg-white">
-
-            <div className="row g-4">
-              {/* PNR */}
-              <div className="col-md-6">
-                <label className="form-label fw-semibold">
-                  PNR <span className="text-danger">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="form-control form-control-lg"
-                  placeholder="Enter your ticket number"
-                />
-              </div>
-
-              {/* Contact No */}
-              <div className="col-md-6">
-                <label className="form-label fw-semibold">
-                  Contact No <span className="text-danger">*</span>
-                </label>
-                <input
-                  type="text"
-                  className="form-control form-control-lg"
-                  placeholder="Enter your contact no"
-                />
-              </div>
-
-              {/* Email */}
-              <div className="col-md-6">
-                <label className="form-label fw-semibold">
-                  Email ID
-                </label>
-                <input
-                  type="email"
-                  className="form-control form-control-lg"
-                  placeholder="Enter your email id"
-                />
-              </div>
-
-              {/* Dropdown */}
-              <div className="col-md-6">
-                <label className="form-label fw-semibold">
-                  Please Choose
-                </label>
-                <select className="form-select form-select-lg">
-                  <option>Please Choose...</option>
-                  <option>Excellent</option>
-                  <option>Good</option>
-                  <option>Average</option>
-                  <option>Poor</option>
-                </select>
-              </div>
-
-              {/* Remarks */}
-              <div className="col-12">
-                <label className="form-label fw-semibold">
-                  Remarks
-                </label>
-                <textarea
-                  rows={4}
-                  className="form-control form-control-lg"
-                  placeholder="Please share any additional feedback or suggestions..."
-                />
-              </div>
+          {/* ===== Main Card (Passenger Info) ===== */}
+          <div className="card mb-4 shadow-sm">
+            <div
+              className="card-header text-white"
+              style={{
+                background: "linear-gradient(90deg, #2C567E, #5B93C9)",
+              }}
+            >
+              <h5 className="mb-0">Passenger Information</h5>
             </div>
 
-            {/* Captcha Placeholder */}
-            <div className="d-flex justify-content-center my-4">
+            <div className="card-body">
+              <div className="row g-4">
+                <div className="col-md-4">
+                  <label className="form-label fw-semibold">
+                    PNR <span className="text-danger">*</span>
+                  </label>
+                  <input
+                    className="form-control form-control-lg"
+                    placeholder="Enter PNR"
+                  />
+                </div>
+
+                <div className="col-md-4">
+                  <label className="form-label fw-semibold">
+                    Contact No <span className="text-danger">*</span>
+                  </label>
+                  <input
+                    className="form-control form-control-lg"
+                    placeholder="Enter contact no"
+                  />
+                </div>
+
+                <div className="col-md-4">
+                  <label className="form-label fw-semibold">
+                    Email ID
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control form-control-lg"
+                    placeholder="Enter email id"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ===== Collapsible Survey Cards ===== */}
+          <div className="accordion" id="surveyAccordion">
+
+            {/* Meal Survey */}
+            <div className="accordion-item mb-3 border rounded shadow-sm">
+              <h2 className="accordion-header">
+                <button
+                  className="accordion-button collapsed fw-semibold"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#mealSurvey"
+                >
+                  Meal Survey
+                </button>
+              </h2>
               <div
-                className="border rounded px-4 py-3 text-muted small"
-                style={{ maxWidth: 300 }}
+                id="mealSurvey"
+                className="accordion-collapse collapse"
+                data-bs-parent="#surveyAccordion"
               >
-                I'm not a robot (reCAPTCHA)
+                <div className="accordion-body">
+                  <label className="form-label">Meal Quality</label>
+                  <select className="form-select mb-3">
+                    <option>Please choose...</option>
+                    <option>Excellent</option>
+                    <option>Good</option>
+                    <option>Average</option>
+                    <option>Poor</option>
+                  </select>
+
+                  <textarea
+                    className="form-control"
+                    rows={3}
+                    placeholder="Meal feedback..."
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Submit Button */}
-            <div className="text-center">
-              <button
-                className="btn px-5 py-3 text-white fw-semibold"
-                style={{
-                  borderRadius: "40px",
-                  background:
-                    "linear-gradient(90deg, #2C567E 0%, #5B93C9 100%)",
-                  boxShadow: "0 0 20px rgba(91,147,201,0.8)",
-                }}
+            {/* Sales Survey */}
+            <div className="accordion-item mb-3 border rounded shadow-sm">
+              <h2 className="accordion-header">
+                <button
+                  className="accordion-button collapsed fw-semibold"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#salesSurvey"
+                >
+                  Sales Survey
+                </button>
+              </h2>
+              <div
+                id="salesSurvey"
+                className="accordion-collapse collapse"
+                data-bs-parent="#surveyAccordion"
               >
-                Submit Feedback
-              </button>
+                <div className="accordion-body">
+                  <label className="form-label">Booking Experience</label>
+                  <select className="form-select mb-3">
+                    <option>Please choose...</option>
+                    <option>Excellent</option>
+                    <option>Good</option>
+                    <option>Average</option>
+                    <option>Poor</option>
+                  </select>
+
+                  <textarea
+                    className="form-control"
+                    rows={3}
+                    placeholder="Sales feedback..."
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* General Survey */}
+            <div className="accordion-item mb-3 border rounded shadow-sm">
+              <h2 className="accordion-header">
+                <button
+                  className="accordion-button collapsed fw-semibold"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#generalSurvey"
+                >
+                  General Survey
+                </button>
+              </h2>
+              <div
+                id="generalSurvey"
+                className="accordion-collapse collapse"
+                data-bs-parent="#surveyAccordion"
+              >
+                <div className="accordion-body">
+                  <textarea
+                    className="form-control"
+                    rows={4}
+                    placeholder="General feedback..."
+                  />
+                </div>
+              </div>
             </div>
 
           </div>
+
+          {/* Submit */}
+          <div className="text-center mt-4">
+            <button
+              className="btn px-5 py-3 text-white fw-semibold"
+              style={{
+                borderRadius: "40px",
+                background: "linear-gradient(90deg, #2C567E, #5B93C9)",
+                boxShadow: "0 0 18px rgba(91,147,201,0.7)",
+              }}
+            >
+              Submit Feedback
+            </button>
+          </div>
+
         </div>
       </div>
     </main>
