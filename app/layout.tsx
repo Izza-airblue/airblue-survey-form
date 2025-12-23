@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import BootstrapProvider from "./provider";
 // import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 export const metadata: Metadata = {
@@ -16,12 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}
-        <script
-          src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-          defer
-        />
-        
+      <body>
+         <BootstrapProvider />
+          {children}
       </body>
     </html>
   );
