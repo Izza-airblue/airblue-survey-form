@@ -16,7 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>{children}
+        <script
+          src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+          defer
+        />
+        
+      </body>
     </html>
   );
 }
