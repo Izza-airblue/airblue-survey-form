@@ -204,7 +204,7 @@ export default function SalesSurveyPage() {
                       ))}
                     </div>
                   </div>
-                  
+
                       <textarea
                         className="form-control"
                         rows={4}
@@ -218,9 +218,7 @@ export default function SalesSurveyPage() {
           ))}
 
           <div className="text-center mt-4">
-            <button className="btn btn-primary px-5 py-3">
-              Submit Feedback
-            </button>
+            <button className="btn px-5 py-3 text-white fw-semibold" style={{ borderRadius: "40px", background: "linear-gradient(90deg, #2C567E, #5B93C9)", boxShadow: "0 0 18px rgba(91,147,201,0.7)", }} > Submit Feedback </button>
           </div>
 
         </div>
