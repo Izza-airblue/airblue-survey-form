@@ -232,43 +232,46 @@ export default function SalesSurveyPage() {
                 </div>
 
                 {/* Emoji Rating Questions */}
-                {questions.map((question, index) => (
-                  <div key={index} className="mb-4">
-                    <label className="form-label fw-semibold">{question}</label>
+               <div className="row g-4 mb-4">
+                      {questions.map((question, index) => (
+                        <div key={index} className="col-12 col-md-6">
+                          <label className="form-label fw-semibold">{question}</label>
 
-                    <div className="d-flex gap-4 mt-2">
-                      {ratingOptions.map((option) => {
-                        const selected = ratings[index] === option.value;
+                          <div className="d-flex gap-4 mt-2">
+                            {ratingOptions.map((option) => {
+                              const selected = ratings[index] === option.value;
 
-                        return (
-                          <div
-                            key={option.value}
-                            onClick={() =>
-                              setRatings({ ...ratings, [index]: option.value })
-                            }
-                            className={`text-center p-3 rounded cursor-pointer ${
-                              selected
-                                ? "border border-primary shadow-sm"
-                                : "border"
-                            }`}
-                            style={{
-                              cursor: "pointer",
-                              transform: selected ? "scale(1.1)" : "scale(1)",
-                              transition: "all 0.2s ease",
-                            }}
-                          >
-                            <div style={{ fontSize: "28px" }}>
-                              {option.emoji}
-                            </div>
-                            <small className="d-block mt-1">
-                              {option.label}
-                            </small>
+                              return (
+                                <div
+                                  key={option.value}
+                                  onClick={() =>
+                                    setRatings({ ...ratings, [index]: option.value })
+                                  }
+                                  className={`text-center p-3 rounded ${
+                                    selected
+                                      ? "border border-primary shadow-sm"
+                                      : "border"
+                                  }`}
+                                  style={{
+                                    cursor: "pointer",
+                                    transform: selected ? "scale(1.1)" : "scale(1)",
+                                    transition: "all 0.2s ease",
+                                    minWidth: "80px",
+                                  }}
+                                >
+                                  <div style={{ fontSize: "28px" }}>
+                                    {option.emoji}
+                                  </div>
+                                  <small className="d-block mt-1">
+                                    {option.label}
+                                  </small>
+                                </div>
+                              );
+                            })}
                           </div>
-                        );
-                      })}
+                        </div>
+                      ))}
                     </div>
-                  </div>
-                ))}
 
                 {/* Recommendation */}
                 <div className="mb-4">
