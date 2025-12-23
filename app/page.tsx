@@ -41,12 +41,12 @@ export default function Home() {
   const cards = [
     {
       title: t.sales,
-      img: "/Surveys/sale_feedback.png",
+      img: "/Surveys/sales_feedback2.png",
       route: "/surveys/sales",
     },
     {
       title: t.meal,
-      img: "/Surveys/meals_feedback.png",
+      img: "/Surveys/meal_feedback1.png",
       route: "/surveys/meal",
     },
     {
