@@ -1,4 +1,31 @@
+"use client";
+
+import { useState } from "react";
+
+type RatingValue = "poor" | "average" | "excellent";
+
+const ratingOptions: {
+  value: RatingValue;
+  label: string;
+  emoji: string;
+}[] = [
+  { value: "poor", label: "Poor", emoji: "😞" },
+  { value: "average", label: "Average", emoji: "😐" },
+  { value: "excellent", label: "Excellent", emoji: "😊" },
+];
+
 export default function SalesSurveyPage() {
+    const [ratings, setRatings] = useState<Record<number, RatingValue>>({});
+
+  const questions = [
+    "3. How was your booking experience with us?",
+    "4. How was your check-in / Boarding experience at terminal?",
+    "5. How was your experience with our cabin crew?",
+    "6. How satisfied are you with cabin and lavatory cleanliness?",
+    "7. How do you like our feedback mechanism?",
+    "8. How satisfied were you with your flight today?",
+  ];
+
   return (
          <main className="container py-5">
       <div className="row justify-content-center">
@@ -173,106 +200,110 @@ export default function SalesSurveyPage() {
                 className="accordion-collapse collapse"
                 data-bs-parent="#surveyAccordion"
               >
-                <div className="accordion-body">
+                   <div className="accordion-body">
 
-                
-                  <div className="row g-4 mb-4">
-                    <div className="col-md-6">
-                      <label className="form-label fw-semibold">
-                        1. How did you purchase your ticket?
-                      </label>
-                      <select className="form-select">
-                        <option>Please Choose...</option>
-                        <option>Website</option>
-                        <option>Mobile App</option>
-                        <option>Travel Agent</option>
-                        <option>Call Center</option>
-                      </select>
-                    </div>
-
-                    <div className="col-md-6">
-                      <label className="form-label fw-semibold">
-                        2. How did you hear about us?
-                      </label>
-                      <select className="form-select">
-                        <option>Please Choose...</option>
-                        <option>Social Media</option>
-                        <option>Website</option>
-                        <option>Friend / Family</option>
-                        <option>Advertisement</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Rating Row Helper */}
-                  {[
-                    "3. How was your booking experience with us?",
-                    "4. How was your check-in / Boarding experience at terminal?",
-                    "5. How was your experience with our cabin crew?",
-                    "6. How satisfied are you with cabin and lavatory cleanliness?",
-                    "7. How do you like our feedback mechanism?",
-                    "8. How satisfied were you with your flight today?"
-                  ].map((question, index) => (
-                    <div key={index} className="mb-4">
-                      <label className="form-label fw-semibold">{question}</label>
-
-                      <div className="d-flex gap-4">
-                        <div className="text-center">
-                          <div style={{ fontSize: "28px" }}>😞</div>
-                          <small>Poor</small>
-                        </div>
-
-                        <div className="text-center">
-                          <div style={{ fontSize: "28px" }}>😐</div>
-                          <small>Average</small>
-                        </div>
-
-                        <div className="text-center">
-                          <div style={{ fontSize: "28px" }}>😊</div>
-                          <small>Excellent</small>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-
-                  {/* Recommendation */}
-                  <div className="mb-4">
+                {/* Q1 & Q2 */}
+                <div className="row g-4 mb-4">
+                  <div className="col-md-6">
                     <label className="form-label fw-semibold">
-                      9. How likely are you to recommend us?
+                      1. How did you purchase your ticket?
                     </label>
-
-                    <div className="d-flex gap-4">
-                      <div className="form-check">
-                        <input className="form-check-input" type="radio" name="recommend" />
-                        <label className="form-check-label">Not At All Likely</label>
-                      </div>
-
-                      <div className="form-check">
-                        <input className="form-check-input" type="radio" name="recommend" />
-                        <label className="form-check-label">Maybe</label>
-                      </div>
-
-                      <div className="form-check">
-                        <input className="form-check-input" type="radio" name="recommend" />
-                        <label className="form-check-label">Very Likely</label>
-                      </div>
-                    </div>
+                    <select className="form-select">
+                      <option>Please Choose...</option>
+                      <option>Website</option>
+                      <option>Mobile App</option>
+                      <option>Travel Agent</option>
+                      <option>Call Center</option>
+                    </select>
                   </div>
 
-                  {/* Feedback */}
-                  <div className="mb-4">
+                  <div className="col-md-6">
                     <label className="form-label fw-semibold">
-                      10. We would love to hear about your experience
+                      2. How did you hear about us?
                     </label>
-
-                    <textarea
-                      className="form-control"
-                      rows={4}
-                      placeholder="Please share any additional feedback or suggestions..."
-                    />
+                    <select className="form-select">
+                      <option>Please Choose...</option>
+                      <option>Social Media</option>
+                      <option>Website</option>
+                      <option>Friend / Family</option>
+                      <option>Advertisement</option>
+                    </select>
                   </div>
-
                 </div>
+
+                {/* Emoji Rating Questions */}
+                {questions.map((question, index) => (
+                  <div key={index} className="mb-4">
+                    <label className="form-label fw-semibold">{question}</label>
+
+                    <div className="d-flex gap-4 mt-2">
+                      {ratingOptions.map((option) => {
+                        const selected = ratings[index] === option.value;
+
+                        return (
+                          <div
+                            key={option.value}
+                            onClick={() =>
+                              setRatings({ ...ratings, [index]: option.value })
+                            }
+                            className={`text-center p-3 rounded cursor-pointer ${
+                              selected
+                                ? "border border-primary shadow-sm"
+                                : "border"
+                            }`}
+                            style={{
+                              cursor: "pointer",
+                              transform: selected ? "scale(1.1)" : "scale(1)",
+                              transition: "all 0.2s ease",
+                            }}
+                          >
+                            <div style={{ fontSize: "28px" }}>
+                              {option.emoji}
+                            </div>
+                            <small className="d-block mt-1">
+                              {option.label}
+                            </small>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+
+                {/* Recommendation */}
+                <div className="mb-4">
+                  <label className="form-label fw-semibold">
+                    9. How likely are you to recommend us?
+                  </label>
+
+                  <div className="d-flex gap-4">
+                    {["Not At All Likely", "Maybe", "Very Likely"].map((label) => (
+                      <div key={label} className="form-check">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="recommend"
+                        />
+                        <label className="form-check-label">{label}</label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Feedback */}
+                <div className="mb-4">
+                  <label className="form-label fw-semibold">
+                    10. We would love to hear about your experience
+                  </label>
+
+                  <textarea
+                    className="form-control"
+                    rows={4}
+                    placeholder="Please share any additional feedback or suggestions..."
+                  />
+                </div>
+
+              </div>
               </div>
             </div>
 
