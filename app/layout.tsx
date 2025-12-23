@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import BootstrapProvider from "./provider";
-// import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Airblue Survey",
@@ -17,9 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-         <BootstrapProvider />
-          {children}
+      <body>{children}
+
+        <Script
+          src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+          strategy="afterInteractive"
+        />
+        
       </body>
     </html>
   );
