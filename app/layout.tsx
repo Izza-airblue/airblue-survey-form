@@ -18,11 +18,12 @@ export default function RootLayout({
     <html lang="en">
       <body>{children}
 
+         {/* Bootstrap JS (CDN) */}
         <Script
-          src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
           strategy="afterInteractive"
         />
-        
+
       </body>
     </html>
   );
