@@ -147,7 +147,17 @@ export default function feedbackForms() {
                           )}
                         </div>
                       </div>
-
+                    {/* Feedback */}
+                        <div className="mb-4">
+                            <label className="form-label fw-semibold">
+                            6. We would love to hear about your meal experience
+                            </label>
+                            <textarea
+                            className="form-control"
+                            rows={4}
+                            placeholder="Please share any additional feedback or suggestions..."
+                            />
+                        </div>
                       <textarea
                         className="form-control"
                         rows={4}
