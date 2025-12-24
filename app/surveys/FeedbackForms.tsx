@@ -158,11 +158,7 @@ export default function feedbackForms() {
                             placeholder="Please share any additional feedback or suggestions..."
                             />
                         </div>
-                      <textarea
-                        className="form-control"
-                        rows={4}
-                        placeholder="Please share any additional feedback or suggestions..."
-                      />
+                    
                     </>
                   )}
 
