@@ -42,17 +42,17 @@ export default function Home() {
     {
       title: t.sales,
       img: "/Surveys/sales_feedback2.png",
-      route: "/surveys/sales",
+      route: "/surveys/",
     },
     {
       title: t.meal,
       img: "/Surveys/meal_feedback1.png",
-      route: "/surveys/meal",
+      route: "/surveys/",
     },
     {
       title: t.general,
       img: "/Surveys/general_feedbacks.png",
-      route: "/surveys/general",
+      route: "/surveys/",
     },
   ];
 
