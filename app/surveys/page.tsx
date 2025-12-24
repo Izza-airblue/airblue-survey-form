@@ -96,7 +96,7 @@ export default function SalesSurveyPage() {
                         {mealQuestions.map((q, index) => {
                           const key = `meal-${index}`;
                           return (
-                            <div key={key} className="col-md-6">
+                            <div key={`meal-q-${index}`} className="col-md-6">
                               <label className="form-label fw-semibold">
                                 {q}
                               </label>
@@ -165,7 +165,7 @@ export default function SalesSurveyPage() {
                         {generalQuestions.map((question, index) => {
                           const key = `general-${index}`;
                           return (
-                            <div key={key} className="col-md-6">
+                            <div key={`general-q-${index}`} className="col-md-6">
                               <label className="form-label fw-semibold">
                                 {question}
                               </label>
