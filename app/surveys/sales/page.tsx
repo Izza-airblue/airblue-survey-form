@@ -58,16 +58,24 @@ export default function SalesSurveyPage() {
                   <label className="form-label fw-semibold">Flight No</label>
                   <input className="form-control form-control-lg" />
                 </div>
-
-                <div className="col-md-4">
-                  <label className="form-label fw-semibold">Gender</label>
-                  <select className="form-select form-select-lg">
-                    <option value="">Please choose...</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Prefer not to say</option>
-                  </select>
-                </div>
+                
+                <div className="mb-4">
+                            <label className="form-label fw-semibold">Gender</label>
+                            <div className="d-flex gap-3">
+                              {["Male", "Female"].map((g) => (
+                                <div
+                                  key={g}
+                                  className="border rounded p-3 text-center"
+                                  style={{ cursor: "pointer", width: 90 }}
+                                >
+                                  <div style={{ fontSize: 28 }}>
+                                    {g === "Male" ? "🧑‍✈️" : "👩‍✈️"}
+                                  </div>
+                                  <small>{g}</small>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
 
                 <div className="col-md-4">
                   <label className="form-label fw-semibold">Occupation</label>
