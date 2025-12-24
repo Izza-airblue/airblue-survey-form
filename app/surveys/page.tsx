@@ -1,0 +1,177 @@
+"use client";
+
+import { useState } from "react";
+import RatingScale, { RatingValue } from "../components/RatingScale";
+
+export default function SalesSurveyPage() {
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
+  const [mealType, setMealType] = useState("");
+
+  const generalQuestions = [
+    "3. How was your booking experience with us?",
+    "4. How was your check-in / Boarding experience at terminal?",
+    "5. How was your experience with our cabin crew?",
+    "6. How satisfied are you with cabin and lavatory cleanliness?",
+    "7. How do you like our feedback mechanism?",
+    "8. How satisfied were you with your flight today?",
+  ];
+
+  const mealQuestions = [
+    "1. How satisfied were you with the meal experience?",
+    "2. How would you rate the taste of your meal?",
+    "3. How would you rate the freshness of the food items served?",
+    "4. How was the meal variety and options offered?",
+  ];
+
+  const toggle = (id: string) =>
+    setOpenAccordion(openAccordion === id ? null : id);
+
+  return (
+    <main className="container py-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-10 col-xl-9">
+
+          {/* Passenger Info (UNCHANGED) */}
+          {/* ... your passenger info code remains exactly same ... */}
+
+          {/* Accordion */}
+          {[
+            { id: "meal", title: "Meal Survey" },
+            { id: "sales", title: "Sales Survey" },
+            { id: "general", title: "General Survey" },
+          ].map(({ id, title }) => (
+            <div key={id} className="card mb-3 shadow-sm">
+              <button
+                type="button"
+                onClick={() => toggle(id)}
+                className="btn text-start fw-semibold"
+                style={{ padding: "16px" }}
+              >
+                {title}
+              </button>
+
+              {openAccordion === id && (
+                <div className="card-body border-top">
+
+                  {/* MEAL SURVEY */}
+                  {id === "meal" && (
+                    <>
+                      <div className="row g-4 mb-4">
+                        {mealQuestions.map((q, index) => {
+                          const key = `meal-${index}`;
+                          return (
+                            <div key={key} className="col-md-6">
+                              <label className="form-label fw-semibold">
+                                {q}
+                              </label>
+
+                              <RatingScale
+                                value={ratings[key]}
+                                onChange={(val) =>
+                                  setRatings({ ...ratings, [key]: val })
+                                }
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Meal Preference */}
+                      <div className="mb-4">
+                        <label className="form-label fw-semibold">
+                          5. Do you prefer a vegetarian or a non-vegetarian meal?
+                        </label>
+                        <div className="d-flex gap-4">
+                          {["Vegetarian Meal", "Non Vegetarian Meal"].map(
+                            (type) => (
+                              <div key={type} className="form-check">
+                                <input
+                                  className="form-check-input"
+                                  type="radio"
+                                  name="mealType"
+                                  onChange={() => setMealType(type)}
+                                />
+                                <label className="form-check-label">
+                                  {type}
+                                </label>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+
+                      <textarea
+                        className="form-control"
+                        rows={4}
+                        placeholder="Please share any additional feedback or suggestions..."
+                      />
+                    </>
+                  )}
+
+                  {/* SALES SURVEY (UNCHANGED) */}
+                  {id === "sales" && (
+                    <>
+                      <select className="form-select mb-3">
+                        <option>Please choose...</option>
+                        <option>Excellent</option>
+                        <option>Good</option>
+                        <option>Average</option>
+                        <option>Poor</option>
+                      </select>
+                      <textarea className="form-control" rows={3} />
+                    </>
+                  )}
+
+                  {/* GENERAL SURVEY */}
+                  {id === "general" && (
+                    <>
+                      <div className="row g-4 mb-4">
+                        {generalQuestions.map((question, index) => {
+                          const key = `general-${index}`;
+                          return (
+                            <div key={key} className="col-md-6">
+                              <label className="form-label fw-semibold">
+                                {question}
+                              </label>
+
+                              <RatingScale
+                                value={ratings[key]}
+                                onChange={(val) =>
+                                  setRatings({ ...ratings, [key]: val })
+                                }
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      <textarea
+                        className="form-control"
+                        rows={4}
+                        placeholder="Additional feedback..."
+                      />
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+
+          <div className="text-center mt-4">
+            <button className="btn px-5 py-3 text-white fw-semibold"
+              style={{
+                borderRadius: "40px",
+                background: "linear-gradient(90deg, #2C567E, #5B93C9)",
+                boxShadow: "0 0 18px rgba(91,147,201,0.7)",
+              }}
+            >
+              Submit Feedback
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  );
+}
