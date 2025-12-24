@@ -27,7 +27,7 @@ export default function RatingScale({ question, value, onChange }: Props) {
             className={`border rounded text-center p-3 ${
               value === opt.value ? "border-primary shadow-sm" : ""
             }`}
-            style={{ cursor: "pointer", width: 80 }}
+            style={{ cursor: "pointer", width: 100 }}
           >
             <div style={{ fontSize: 24 }}>{opt.emoji}</div>
             <small>{opt.label}</small>
