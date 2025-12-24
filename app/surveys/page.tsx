@@ -65,13 +65,13 @@ export default function SalesSurveyPage() {
                               <label className="form-label fw-semibold">
                                 {q}
                               </label>
-
-                              <RatingScale
-                                value={ratings[key]}
-                                onChange={(val) =>
-                                  setRatings({ ...ratings, [key]: val })
-                                }
-                              />
+                                <RatingScale
+                                  question={q}
+                                  value={ratings[`meal-${index}`]}
+                                  onChange={(val) =>
+                                    setRatings({ ...ratings, [`meal-${index}`]: val })
+                                  }
+                                />
                             </div>
                           );
                         })}
@@ -136,11 +136,12 @@ export default function SalesSurveyPage() {
                               </label>
 
                               <RatingScale
-                                value={ratings[key]}
-                                onChange={(val) =>
-                                  setRatings({ ...ratings, [key]: val })
-                                }
-                              />
+                                  question={question}
+                                  value={ratings[`general-${index}`]}
+                                  onChange={(val) =>
+                                    setRatings({ ...ratings, [`general-${index}`]: val })
+                                  }
+/>
                             </div>
                           );
                         })}
