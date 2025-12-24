@@ -1,10 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RatingScale, { RatingValue } from "../components/RatingScale";
+import { useSearchParams } from "next/navigation";
 
 export default function SalesSurveyPage() {
-  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+      const searchParams = useSearchParams();
+    const defaultOpen = searchParams.get("open");
+
+    const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+
+    useEffect(() => {
+      if (defaultOpen) {
+        setOpenAccordion(defaultOpen);
+      }
+    }, [defaultOpen]);
   const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
   const [mealType, setMealType] = useState("");
 

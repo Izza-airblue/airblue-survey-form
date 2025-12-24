@@ -39,23 +39,22 @@ export default function Home() {
   const t = translations[lang];
 
   const cards = [
-    {
-      title: t.sales,
-      img: "/Surveys/sales_feedback2.png",
-      route: "/surveys/",
-    },
-    {
-      title: t.meal,
-      img: "/Surveys/meal_feedback1.png",
-      route: "/surveys/",
-    },
-    {
-      title: t.general,
-      img: "/Surveys/general_feedbacks.png",
-      route: "/surveys/",
-    },
-  ];
-
+  {
+    title: t.sales,
+    img: "/Surveys/sales_feedback2.png",
+    route: "/surveys?open=sales",
+  },
+  {
+    title: t.meal,
+    img: "/Surveys/meal_feedback1.png",
+    route: "/surveys?open=meal",
+  },
+  {
+    title: t.general,
+    img: "/Surveys/general_feedbacks.png",
+    route: "/surveys?open=general",
+  },
+];
   return (
     <main
       className="relative min-h-screen"
