@@ -17,7 +17,7 @@ interface Props {
 export default function RatingScale({ question, value, onChange }: Props) {
   return (
     <div>
-      <label className="form-label fw-semibold">{question}</label>
+      {/* <label className="form-label fw-semibold">{question}</label> */}
 
       <div className="d-flex gap-3 mt-2">
         {ratingOptions.map((opt) => (
