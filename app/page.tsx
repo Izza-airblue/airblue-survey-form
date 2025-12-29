@@ -60,7 +60,6 @@ export default function Home() {
       className="relative min-h-screen"
       dir={lang === "ur" ? "rtl" : "ltr"}
     >
-      {/* Background */}
       <div className="absolute inset-0">
         <Image
           src="/Surveys/main_banner2.png"
@@ -72,7 +71,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Top Bar */}
       <div
         className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-4 sm:px-6 py-4"
         dir="ltr"
@@ -109,7 +107,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-28 text-center">
         <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl" style={{fontSize:"55px", fontWeight:"700"}}>
           {t.heading}
@@ -119,7 +116,6 @@ export default function Home() {
           {t.tagline}
         </p>
         <br/><br/>
-        {/* Cards */}
         <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
           {cards.map((card, i) => (
             <div

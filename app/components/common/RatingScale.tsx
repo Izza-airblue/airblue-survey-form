@@ -1,4 +1,3 @@
-"use client";
 
 type RatingValue = "poor" | "average" | "excellent";
 
