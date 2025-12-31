@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlserver"
+}
+
+model Survey {
+  SurveyID       Int              @id(map: "PK__Survey__A5481F9D983CFAB5") @default(autoincrement())
+  Name           String?          @db.NVarChar(255)
+  CreatedOn      DateTime         @db.DateTime
+  UpdatedOn      DateTime?        @db.DateTime
+  SurveyQuestion SurveyQuestion[]
+  SurveyResponse SurveyResponse[]
+}
+
+model SurveyAnswer {
+  SurveyAnswerID         Int                   @id(map: "PK__SurveyAn__E5C3DB530ABB6DC8") @default(autoincrement())
+  SurveyQuestionOptionID Int?
+  SurveyReponseID        Int?
+  AnswerText             String?               @db.NVarChar(100)
+  QuestionID             Int
+  SurveyQuestionOption   SurveyQuestionOption? @relation(fields: [SurveyQuestionOptionID], references: [SurveyQuestionOptionID], onDelete: NoAction, onUpdate: NoAction, map: "FK__SurveyAns__Surve__0E6E26BF")
+  SurveyQuestion         SurveyQuestion        @relation(fields: [QuestionID], references: [SurveyQuestionID], onUpdate: NoAction, map: "FK_SurveyAnswer_SurveyQuestion")
+  SurveyResponse         SurveyResponse?       @relation(fields: [SurveyReponseID], references: [SurveyResponseID], onDelete: NoAction, onUpdate: NoAction, map: "FK_SurveyAnswer_SurveyResponse")
+}
+
+model SurveyQuestion {
+  SurveyQuestionID     Int                    @id(map: "PK__SurveyQu__01A9994FE81ABB22") @default(autoincrement())
+  QuestionText         String                 @db.NVarChar(255)
+  SurveyQuestionTypeID Int?
+  SurveyID             Int?
+  SurveyAnswer         SurveyAnswer[]
+  SurveyQuestionType   SurveyQuestionType?    @relation(fields: [SurveyQuestionTypeID], references: [SurveyQuestionTypeID], onDelete: NoAction, onUpdate: NoAction, map: "FK__SurveyQue__Surve__04E4BC85")
+  Survey               Survey?                @relation(fields: [SurveyID], references: [SurveyID], onDelete: NoAction, onUpdate: NoAction, map: "FK__SurveyQue__Surve__05D8E0BE")
+  SurveyQuestionOption SurveyQuestionOption[]
+}
+
+model SurveyQuestionOption {
+  SurveyQuestionOptionID Int             @id(map: "PK__SurveyQu__EC4DD6A73573351F") @default(autoincrement())
+  OptionText             String          @db.NVarChar(10)
+  SurveyQuestionID       Int?
+  SurveyAnswer           SurveyAnswer[]
+  SurveyQuestion         SurveyQuestion? @relation(fields: [SurveyQuestionID], references: [SurveyQuestionID], onDelete: NoAction, onUpdate: NoAction, map: "FK__SurveyQue__Surve__08B54D69")
+}
+
+model SurveyQuestionType {
+  SurveyQuestionTypeID Int              @id(map: "PK__SurveyQu__84E16F73B1DEA1B3") @default(autoincrement())
+  QuestionType         String?          @db.NVarChar(10)
+  SurveyQuestion       SurveyQuestion[]
+}
+
+model SurveyResponse {
+  SurveyResponseID Int            @id(map: "PK__SurveyRe__3D1369DACCBB429B") @default(autoincrement())
+  SurveyID         Int?
+  SubmittedOn      DateTime       @db.DateTime
+  SurveyAnswer     SurveyAnswer[]
+  Survey           Survey?        @relation(fields: [SurveyID], references: [SurveyID], onDelete: NoAction, onUpdate: NoAction, map: "FK__SurveyRes__Surve__0B91BA14")
+}
+
+model sysdiagrams {
+  name         String @db.NVarChar(128)
+  principal_id Int
+  diagram_id   Int    @id(map: "PK__sysdiagr__C2B05B61C6838AEE") @default(autoincrement())
+  version      Int?
+  definition   Bytes?
+
+  @@unique([principal_id, name], map: "UK_principal_name")
+}
