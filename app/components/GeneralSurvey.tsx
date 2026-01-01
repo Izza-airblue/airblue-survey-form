@@ -7,6 +7,7 @@ const generalQuestions = [
     "6. How satisfied are you with cabin and lavatory cleanliness?",
     "7. How do you like our feedback mechanism?",
     "8. How satisfied were you with your flight today?",
+    "9. How satisfied were you with your flight today?",
   ];
 interface Props {
    ratings : Record<string, RatingValue>;
