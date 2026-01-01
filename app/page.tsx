@@ -17,18 +17,21 @@ const translations: Record<
   }
 > = {
   en: {
-    heading: "Thank you for flying with us",
+    heading: "Share your feedback with us",
     tagline: "Shaping Our Tomorrow, Together.",
-    sales: "Sales Feedback",
-    meal: "Meal Feedback",
     general: "General Feedback",
+    meal: "Meal Feedback",
+    sales: "Drop Us A Message",
+    
+    
   },
   ur: {
     heading: "ہمارے ساتھ سفر کرنے کا شکریہ",
     tagline: "کل کو بہتر بنانے کے لیے، مل کر۔",
-    sales: "فروخت سے متعلق رائے",
-    meal: "کھانے سے متعلق رائے",
     general: "عمومی رائے",
+    meal: "کھانے سے متعلق رائے",
+    sales: "فروخت سے متعلق رائے",
+    
   },
 };
 
