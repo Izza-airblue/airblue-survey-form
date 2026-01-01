@@ -81,8 +81,8 @@ export default function Home() {
         <Image
           src="/Surveys/airblue.svg"
           alt="Airblue"
-          width={150}
-          height={40}
+          width={189}
+          height={38}
         />
 
         <div className="flex gap-2">
