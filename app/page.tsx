@@ -68,7 +68,7 @@ export default function Home() {
           src="/Surveys/main_banner2.png"
           alt="Banner"
           fill
-          className="object-cover"
+          className="object-cover brightness-75"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -135,7 +135,7 @@ export default function Home() {
                 />
                 <div className="main_card_class absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-4 left-4">
-                  <h2 className="text-white text-lg">
+                  <h2 className="text-white text-lg" style={{fontSize:"22px", fontWeight:"400"}}>
                     {card.title}
                   </h2>
                 </div>
