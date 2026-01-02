@@ -141,7 +141,7 @@ export default function Home() {
                   <h2 className="text-white text-lg" style={{fontSize:"22px", fontWeight:"400",textAlign:"justify"}}>
                     {card.title}
                   </h2>
-                  <p className="text-sm" style={{fontSize:"16px", fontWeight:"400",color:"white"}}>{card.subtitle}</p>
+                  <p className="text-sm" style={{fontSize:"16px", fontWeight:"400",color:"white",textAlign:"justify"}}>{card.subtitle}</p>
                 </div>
               </div>
             </div>
