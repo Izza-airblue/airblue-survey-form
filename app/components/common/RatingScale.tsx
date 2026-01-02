@@ -19,18 +19,22 @@ export default function RatingScale({ question, value, onChange }: Props) {
       {/* <label className="form-label fw-semibold">{question}</label> */}
 
       <div className="d-flex gap-3 mt-2">
-        {ratingOptions.map((opt) => (
-          <div
-            key={opt.value}
-            onClick={() => onChange(opt.value)}
-            className={`border rounded text-center p-3 ${
-              value === opt.value ? "border-primary shadow-sm" : ""
-            }`}
-            style={{ cursor: "pointer", width: 100 }}
-          >
-            <div style={{ fontSize: 20 }}>{opt.emoji}</div>
-            <small>{opt.label}</small>
-          </div>
+                    {ratingOptions.map((opt) => (
+                    <div
+              key={opt.value}
+              onClick={() => onChange(opt.value)}
+              className={`border rounded text-center p-3 transition-all duration-200 cursor-pointer
+                ${
+                  value === opt.value
+                    ? "border-2 border-primary shadow-md bg-primary/5 scale-105"
+                    : "border border-gray-300 hover:border-primary/50"
+                }
+              `}
+              style={{ width: 100 }}
+            >
+              <div style={{ fontSize: 20 }}>{opt.emoji}</div>
+              <small className="block mt-1">{opt.label}</small>
+        </div>
         ))}
       </div>
     </div>
