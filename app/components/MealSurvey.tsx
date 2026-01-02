@@ -53,7 +53,7 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                         className={`flex items-center gap-2 py-1.5 p-3 border rounded-md cursor-pointer text-sm transition-all
                         ${
                             mealType === item.label
-                            ? "border-primary bg-primary/10 shadow-sm"
+                            ? "border-2 border-primary bg-primary/10 shadow-sm"
                             : "border-gray-300 text-gray-700 hover:border-primary"
                         }
                         `}
@@ -80,7 +80,7 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                         className={`flex items-center gap-2 py-1.5 p-3 border rounded-md cursor-pointer text-sm transition-all
                         ${
                             mealType === item.label
-                            ? "border-primary bg-primary/10 shadow-sm"
+                            ? "border-2 border-primary bg-primary/10 shadow-sm"
                             : "border-gray-300 text-gray-700 hover:border-primary"
                         }
                         `}
