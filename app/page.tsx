@@ -136,7 +136,7 @@ export default function Home() {
                   fill
                   className="object-cover"
                 />
-                <div className="main_card_class absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <h2 className="text-white text-lg" style={{fontSize:"22px", fontWeight:"400",textAlign:"justify"}}>
                     {card.title}
