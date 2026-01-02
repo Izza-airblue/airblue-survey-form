@@ -66,23 +66,22 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                 </label>
                 <div className="d-flex gap-4">
                   {[
-                    { label: "Vegetarian Meal", emoji: "🥦" },
-                    { label: "Non Vegetarian Meal", emoji: "🍗" }
+                    { label: "Veg", emoji: "🥬" },
+                    { label: "Non Veg", emoji: "🍗" },
                     ].map((item) => (
                     <div
                         key={item.label}
                         onClick={() => setMealType(item.label)}
-                        className={`cursor-pointer border rounded-lg p-4 text-center transition-all duration-200
+                        className={`flex items-center gap-2 px-3 py-1.5 border rounded-md cursor-pointer text-sm transition-all
                         ${
                             mealType === item.label
-                            ? "border-primary ring-2 ring-primary shadow-md bg-primary/10 scale-105"
-                            : "border-gray-300 hover:border-primary/50"
+                            ? "border-primary bg-primary/10 text-primary shadow-sm"
+                            : "border-gray-300 text-gray-700 hover:border-primary"
                         }
                         `}
-                        style={{ width: 140 }}
                     >
-                        <div className="text-3xl mb-1">{item.emoji}</div>
-                        <div className="text-sm font-medium">{item.label}</div>
+                        <span className="text-base">{item.emoji}</span>
+                        <span className="font-medium">{item.label}</span>
                     </div>
                     ))}
                 </div>
