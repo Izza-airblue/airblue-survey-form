@@ -84,7 +84,7 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                             : "border-gray-300 text-gray-700 hover:border-primary"
                         }
                         `}
-                        style={{height:"40px", width:"100px"}}
+                        style={{height:"40px", width:"130px"}}
                     >
                         <span className="text-base">{item.emoji}</span>
                         <span className="font-medium">{item.label}</span>
