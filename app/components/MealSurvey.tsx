@@ -66,8 +66,8 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                 </label>
                 <div className="d-flex gap-4">
                     {[
-                    { label: "Vegetarian Meal", icon: "/icons/veg.svg" },
-                    { label: "Non Vegetarian Meal", icon: "/icons/non-veg.svg" }
+                    { label: "Vegetarian Meal", icon: "/Icons/veg.svg" },
+                    { label: "Non Vegetarian Meal", icon: "/Icons/nonveg.svg" }
                     ].map((item) => (
                     <label
                         key={item.label}
