@@ -3,10 +3,12 @@ export const SalesSurvey = () => {
         <>
             <select className="form-select mb-3">
                 <option>Please Choose...</option>
-                <option>Excellent</option>
-                <option>Good</option>
-                <option>Average</option>
-                <option>Poor</option>
+                <option>Appreciation</option>
+                <option>Complaint</option>
+                <option>Suggestion</option>
+                <option>Query</option>
+                <option>Refund</option>
+                <option>Special Request</option>
             </select>
 
             <div className="mb-4">
