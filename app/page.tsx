@@ -50,13 +50,13 @@ export default function Home() {
   },
     {
     title: t.meal,
-    subtitle: "how was your in flight meal experience",
+    subtitle: "How was your in flight meal experience",
     img: "/Surveys/meal_feedback1.png",
     route: "/surveys?open=meal",
   },
   {
     title: t.sales,
-    subtitle: "Need to talk to us",
+    subtitle: "Need to talk to us? Drop us a message and we will reach out",
     img: "/Surveys/sales_feedback2.png",
     route: "/surveys?open=sales",
   },
