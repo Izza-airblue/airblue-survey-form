@@ -75,7 +75,7 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                         className={`cursor-pointer border rounded-lg p-4 text-center transition-all duration-200
                         ${
                             mealType === item.label
-                            ? "border-primary shadow-md bg-primary/10 scale-105"
+                            ? "border-primary ring-2 ring-primary shadow-md bg-primary/10 scale-105"
                             : "border-gray-300 hover:border-primary/50"
                         }
                         `}
