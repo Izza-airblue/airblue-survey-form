@@ -63,7 +63,7 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                     style={{ height: "40px", width: "160px" }}
                 >
                     <span className="text-base">{item.emoji}</span>
-                    <span className="font-medium">{item.label}</span>
+                    <span className="font-small">{item.label}</span>
                 </div>
                 ))}
             </div>
