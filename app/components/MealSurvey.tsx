@@ -60,9 +60,31 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                     )}
                 </div>
             </div>
+                        <div className="mb-4">
+                <label className="form-label fw-semibold">
+                    6. Which meal was served to you on flight?
+                </label>
+                <div className="d-flex gap-4">
+                    {["Vegetarian Meal", "Non Vegetarian Meal"].map(
+                        (type) => (
+                            <div key={type} className="form-check">
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="mealType"
+                                    onChange={() => setMealType(type)}
+                                />
+                                <label className="form-check-label">
+                                    {type}
+                                </label>
+                            </div>
+                        )
+                    )}
+                </div>
+            </div>
             <div className="mb-4">
                 <label className="form-label fw-semibold">
-                    6. We would love to hear about your meal experience
+                    7. We would love to hear about your meal experience
                 </label>
                 <textarea
                     className="form-control"
