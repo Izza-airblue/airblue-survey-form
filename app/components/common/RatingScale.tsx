@@ -28,7 +28,7 @@ export default function RatingScale({ question, value, onChange }: Props) {
             }`}
             style={{ cursor: "pointer", width: 100 }}
           >
-            <div style={{ fontSize: 24 }}>{opt.emoji}</div>
+            <div style={{ fontSize: 20 }}>{opt.emoji}</div>
             <small>{opt.label}</small>
           </div>
         ))}
