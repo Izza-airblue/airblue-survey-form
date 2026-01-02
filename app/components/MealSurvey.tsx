@@ -65,21 +65,31 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                     6. Which meal was served to you on flight?
                 </label>
                 <div className="d-flex gap-4">
-                    {["Vegetarian Meal", "Non Vegetarian Meal"].map(
-                        (type) => (
-                            <div key={type} className="form-check">
-                                <input
-                                    className="form-check-input"
-                                    type="radio"
-                                    name="mealType"
-                                    onChange={() => setMealType(type)}
-                                />
-                                <label className="form-check-label">
-                                    {type}
-                                </label>
-                            </div>
-                        )
-                    )}
+                    {[
+                    { label: "Vegetarian Meal", icon: "/icons/veg.svg" },
+                    { label: "Non Vegetarian Meal", icon: "/icons/non-veg.svg" }
+                    ].map((item) => (
+                    <label
+                        key={item.label}
+                        className="flex items-center gap-2 cursor-pointer border rounded p-2 mb-2 hover:border-primary"
+                    >
+                        <input
+                        type="radio"
+                        name="mealType"
+                        value={item.label}
+                        onChange={() => setMealType(item.label)}
+                        className="form-check-input"
+                        />
+
+                        <img
+                        src={item.icon}
+                        alt={item.label}
+                        className="w-6 h-6"
+                        />
+
+                        <span className="text-sm">{item.label}</span>
+                    </label>
+                    ))}
                 </div>
             </div>
             <div className="mb-4">
