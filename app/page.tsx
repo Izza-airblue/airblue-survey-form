@@ -56,7 +56,7 @@ export default function Home() {
   },
   {
     title: t.sales,
-    subtitle: "Need to talk? Drop us a message and we will reach out",
+    subtitle: "Drop us a message and we will reach out",
     img: "/Surveys/sales_feedback2.png",
     route: "/surveys?open=sales",
   },
