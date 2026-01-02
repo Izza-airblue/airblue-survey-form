@@ -65,30 +65,25 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                     6. Which meal was served to you on flight?
                 </label>
                 <div className="d-flex gap-4">
-                    {[
-                    { label: "Vegetarian Meal", icon: "/Icons/veg.svg" },
-                    { label: "Non Vegetarian Meal", icon: "/Icons/nonveg.svg" }
+                  {[
+                    { label: "Vegetarian Meal", emoji: "🥦" },
+                    { label: "Non Vegetarian Meal", emoji: "🍗" }
                     ].map((item) => (
-                    <label
+                    <div
                         key={item.label}
-                        className="flex items-center gap-2 cursor-pointer border rounded p-2 mb-2 hover:border-primary"
+                        onClick={() => setMealType(item.label)}
+                        className={`cursor-pointer border rounded-lg p-4 text-center transition-all duration-200
+                        ${
+                            mealType === item.label
+                            ? "border-primary shadow-md bg-primary/10 scale-105"
+                            : "border-gray-300 hover:border-primary/50"
+                        }
+                        `}
+                        style={{ width: 140 }}
                     >
-                        <input
-                        type="radio"
-                        name="mealType"
-                        value={item.label}
-                        onChange={() => setMealType(item.label)}
-                        className="form-check-input"
-                        />
-
-                        <img
-                        src={item.icon}
-                        alt={item.label}
-                        className="w-6 h-6"
-                        />
-
-                        <span className="text-sm">{item.label}</span>
-                    </label>
+                        <div className="text-3xl mb-1">{item.emoji}</div>
+                        <div className="text-sm font-medium">{item.label}</div>
+                    </div>
                     ))}
                 </div>
             </div>
