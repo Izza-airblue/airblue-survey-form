@@ -72,13 +72,14 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                     <div
                         key={item.label}
                         onClick={() => setMealType(item.label)}
-                        className={`flex items-center gap-2 px-3 py-1.5 border rounded-md cursor-pointer text-sm transition-all
+                        className={`flex items-center gap-2 py-1.5 border rounded-md cursor-pointer text-sm transition-all
                         ${
                             mealType === item.label
-                            ? "border-primary bg-primary/10 text-primary shadow-sm"
+                            ? "border-primary bg-primary/10 shadow-sm"
                             : "border-gray-300 text-gray-700 hover:border-primary"
                         }
                         `}
+                        style={{height:"40px", width:"100px"}}
                     >
                         <span className="text-base">{item.emoji}</span>
                         <span className="font-medium">{item.label}</span>
