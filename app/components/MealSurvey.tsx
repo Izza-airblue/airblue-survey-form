@@ -66,8 +66,8 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
                 </label>
                 <div className="d-flex gap-4">
                   {[
-                    { label: "Veg", emoji: "🥬" },
-                    { label: "Non Veg", emoji: "🍗" },
+                    { label: "Vegetarian", emoji: "🥬" },
+                    { label: "Non Vegetarian", emoji: "🍗" },
                     ].map((item) => (
                     <div
                         key={item.label}
