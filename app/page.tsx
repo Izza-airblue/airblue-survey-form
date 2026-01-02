@@ -68,7 +68,7 @@ export default function Home() {
     >
       <div className="absolute inset-0">
         <Image
-          src="/Surveys/main_banner2.png"
+          src="/Surveys/main_banner1.png"
           alt="Banner"
           fill
           className="object-cover brightness-85"
