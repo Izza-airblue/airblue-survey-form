@@ -42,20 +42,23 @@ export default function Home() {
   const t = translations[lang];
 
   const cards = [
-  {
-    title: t.sales,
-    img: "/Surveys/sales_feedback2.png",
-    route: "/surveys?open=sales",
+     {
+    title: t.general,
+    subtitle: "How was your overall experience with Airblue",
+    img: "/Surveys/general_feedbacks.png",
+    route: "/surveys?open=general",
   },
-  {
+    {
     title: t.meal,
+    subtitle: "how was your in flight meal experience",
     img: "/Surveys/meal_feedback1.png",
     route: "/surveys?open=meal",
   },
   {
-    title: t.general,
-    img: "/Surveys/general_feedbacks.png",
-    route: "/surveys?open=general",
+    title: t.sales,
+    subtitle: "Need to talk to us",
+    img: "/Surveys/sales_feedback2.png",
+    route: "/surveys?open=sales",
   },
 ];
   return (
@@ -68,7 +71,7 @@ export default function Home() {
           src="/Surveys/main_banner2.png"
           alt="Banner"
           fill
-          className="object-cover brightness-75"
+          className="object-cover brightness-85"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -138,6 +141,7 @@ export default function Home() {
                   <h2 className="text-white text-lg" style={{fontSize:"22px", fontWeight:"400"}}>
                     {card.title}
                   </h2>
+                  <p className="text-sm text-gray-500" style={{fontSize:"16px", fontWeight:"400"}}>{card.subtitle}</p>
                 </div>
               </div>
             </div>
