@@ -124,7 +124,7 @@ export default function Home() {
         <br/><br/>
         <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
           {cards.map((card, i) => (
-            <div
+            <div style={{border:"2px solid white"}}
               key={i}
               onClick={() => router.push(card.route)}
               className="cursor-pointer rounded-xl overflow-hidden shadow-lg transform transition hover:scale-105"
