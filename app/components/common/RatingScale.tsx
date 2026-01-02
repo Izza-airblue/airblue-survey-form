@@ -2,9 +2,9 @@
 type RatingValue = "poor" | "average" | "excellent";
 
 const ratingOptions = [
-  { value: "poor", label: "Poor", emoji: <img src="/Icons/sad.svg" alt="Sad" className="w-6 h-6 inline-block"/> },
-  { value: "average", label: "Average", emoji: <img src="/Icons/happy.svg" alt="Sad" className="w-6 h-6 inline-block"/> },
-  { value: "excellent", label: "Excellent", emoji: <img src="/Icons/excellent.svg" alt="Sad" className="w-6 h-6 inline-block"/> },
+  { value: "poor", label: "Poor", emoji: <img src="/Icons/sad.svg" alt="Sad" style={{width:"45px", height:"45px"}} className="w-6 h-6 inline-block"/> },
+  { value: "average", label: "Average", emoji: <img src="/Icons/happy.svg" style={{width:"45px", height:"45px"}} alt="Happy" className="w-6 h-6 inline-block"/> },
+  { value: "excellent", label: "Excellent", emoji: <img src="/Icons/excellent.svg"  style={{width:"45px", height:"45px"}} alt="Excellent" className="w-6 h-6 inline-block"/> },
 ] as const;
 
 interface Props {
