@@ -5,7 +5,7 @@ export const CustomerInformation = () => {
                 <h5 className="mb-0">Guest Information</h5>
             </div>
             <div className="card-body">
-                <div className="row g-4">
+                <div className="row g-3">
                     <div className="col-md-4">
                      <label className="form-label fw-semibold flex items-center gap-2" style={{display:"inline-flex"}}>
                         {/* PNR SVG Icon */}
@@ -44,8 +44,23 @@ export const CustomerInformation = () => {
                         </select>
                     </div>
                     <div className="col-md-4">
-                        <label className="form-label fw-semibold">Occupation</label>
-                        <input className="form-control form-control-lg" />
+                        <select className="form-select form-select-lg"> <option value="">Please choose...</option>
+                          <select className="form-select form-select-lg"> <option value="">Please choose...</option>
+                            <option value="">Please select your profession</option>
+                            <option value="Student">Student</option>
+                            <option value="Armed Forces">Armed Forces</option>
+                            <option value="Unemployed">Unemployed</option>
+                            <option value="Healthcare Professional">Healthcare Professional</option>
+                            <option value="Government Sector">Government Sector</option>
+                            <option value="Aviation Industry">Aviation Industry</option>
+                            <option value="Legal Profession">Legal Profession</option>
+                            <option value="Hospitality">Hospitality</option>
+                            <option value="Education">Education</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Self Employed">Self Employed</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        </select>
                     </div>
                 </div>
             </div>
