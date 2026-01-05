@@ -1,7 +1,7 @@
 export const CustomerInformation = () => {
     return (
         <div className="card mb-4 shadow-sm">
-            <div className="card-header text-white" style={{ background: "linear-gradient(90deg,#2C567E,#5B93C9)" }} >
+            <div className="card-header text-white" style={{ background: "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))" }} >
                 <h5 className="mb-0">Guest Information</h5>
             </div>
             <div className="card-body">
