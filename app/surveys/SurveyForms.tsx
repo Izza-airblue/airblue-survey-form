@@ -39,12 +39,12 @@ export default function SurveyForms() {
             { id: "meal", title: "Meal Survey" },
           
           ].map(({ id, title }) => (
-            <div key={id} className="card card-header text-white mb-3 shadow-sm" style={{ background: "linear-gradient(90deg,#2C567E,#5B93C9)" }}>
+            <div key={id} className="card  mb-3 shadow-sm">
               <button
                 type="button"
                 onClick={() => toggle(id)}
-                className="btn text-start fw-semibold"
-                style={{ padding: "16px" }}
+                className="btn text-start fw-semibold card-header text-white"
+                style={{ padding: "16px",  background: "linear-gradient(90deg,#2C567E,#5B93C9)"  }}
               >
                 {title}
               </button>
