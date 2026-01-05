@@ -39,7 +39,7 @@ export default function SurveyForms() {
             { id: "meal", title: "Meal Survey" },
           
           ].map(({ id, title }) => (
-            <div key={id} className="card  mb-3 shadow-sm">
+            <div key={id} className="card shadow-sm">
               <button
                 type="button"
                 onClick={() => toggle(id)}
