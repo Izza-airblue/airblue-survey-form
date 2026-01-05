@@ -71,7 +71,7 @@ export default function Home() {
           src="/Surveys/mainBanner.png"
           alt="Banner"
           fill
-          className="object-cover brightness-85"
+          className="object-cover"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
