@@ -47,7 +47,7 @@ export default function SurveyForms() {
                 style={{background: "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))"  }}
               >
                 {title}
-              </button>
+              </button><i className="fa fa-chevron-down" aria-hidden="true"></i>
 
               {openAccordion === id && (
                 <div className="card-body border-top">

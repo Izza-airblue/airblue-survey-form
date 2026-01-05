@@ -21,19 +21,19 @@ export const CustomerInformation = () => {
                         <span>PNR</span>
                         <span className="text-red-500">*</span>
                         </label>
-                        <input className="form-control form-control-lg" />
+                        <input className="form-control form-control-lg"  placeholder="Enter your ticket number" />
                     </div>
                     <div className="col-md-4">
                         <label className="form-label fw-semibold">Contact No <span style={{color:"red"}}>*</span></label>
-                        <input className="form-control form-control-lg" />
+                        <input className="form-control form-control-lg" placeholder="Enter your contact number"/>
                     </div>
                     <div className="col-md-4">
                         <label className="form-label fw-semibold">Email</label>
-                        <input type="email" className="form-control form-control-lg" />
+                        <input type="email" className="form-control form-control-lg" placeholder="Enter your email ID"/>
                     </div>
                     <div className="col-md-4">
                         <label className="form-label fw-semibold">Flight No</label>
-                        <input className="form-control form-control-lg" />
+                        <input className="form-control form-control-lg" placeholder="Enter your flight number"/>
                     </div>
                     <div className="col-md-4">
                         <label className="form-label fw-semibold">Gender</label>
