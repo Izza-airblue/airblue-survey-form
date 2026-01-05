@@ -44,7 +44,7 @@ export default function SurveyForms() {
                 type="button"
                 onClick={() => toggle(id)}
                 className="btn text-start fw-semibold card-header text-white"
-                style={{ padding: "16px",  background: "linear-gradient(90deg,#2C567E,#5B93C9)"  }}
+                style={{background: "linear-gradient(90deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))"  }}
               >
                 {title}
               </button>
