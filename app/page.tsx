@@ -51,7 +51,7 @@ export default function Home() {
     {
     title: t.meal,
     subtitle: "How was your in flight meal experience",
-    img: "/Surveys/meal.png",
+    img: "/Surveys/meals.png",
     route: "/surveys?open=meal",
   },
   {
