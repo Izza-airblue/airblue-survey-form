@@ -1,10 +1,8 @@
-import { Suspense } from "react";
+import { prisma } from "@/lib/prisma";
 import SurveyForms from "./SurveyForms";
 
-export default function Page() {
-  return (
-    <Suspense fallback={<div className="p-5 text-center">Initiating survey…</div>}>
-      <SurveyForms />
-    </Suspense>
-  );
+export default async function SurveyPage() {
+  const surveysCount = await prisma.survey.count();
+
+  return <SurveyForms surveysCount={surveysCount} />;
 }

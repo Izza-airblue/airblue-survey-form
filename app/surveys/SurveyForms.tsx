@@ -8,11 +8,16 @@ import { SalesSurvey } from "../components/SalesSurvey";
 import { GeneralSurvey } from "../components/GeneralSurvey";
 import { CustomerInformation } from "../components/CustomerInformation";
 
-export default function SurveyForms() {
+type Props = {
+  surveysCount: number;
+};
+
+export default function SurveyForms({ surveysCount }: Props) {
   const searchParams = useSearchParams();
   const defaultOpen = searchParams.get("open");
 
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
 
   useEffect(() => {
     if (defaultOpen) {
@@ -20,17 +25,17 @@ export default function SurveyForms() {
     }
   }, [defaultOpen]);
 
-  const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
-
   const toggle = (id: string) =>
     setOpenAccordion(openAccordion === id ? null : id);
 
   return (
-
     <main className="container py-5">
+      {/* <div>
+        <h1>Total Surveys: {surveysCount}</h1>
+      </div> */}
+
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-9">
-
           <CustomerInformation />
 
           {[
@@ -70,18 +75,23 @@ export default function SurveyForms() {
       </svg>
     </button>
 
-    {openAccordion === id && (
-      <div className="card-body border-top">
-        {id === "meal" && <MealSurvey ratings={ratings} setRatings={setRatings} />}
-        {id === "sales" && <SalesSurvey />}
-        {id === "general" && <GeneralSurvey ratings={ratings} setRatings={setRatings} />}
-      </div>
-    )}
-  </div>
-))}
+              {openAccordion === id && (
+                <div className="card-body border-top">
+                  {id === "meal" && (
+                    <MealSurvey ratings={ratings} setRatings={setRatings} />
+                  )}
+                  {id === "sales" && <SalesSurvey />}
+                  {id === "general" && (
+                    <GeneralSurvey ratings={ratings} setRatings={setRatings} />
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
 
           <div className="text-center mt-4">
-            <button className="btn px-5 py-3 text-white fw-semibold"
+            <button
+              className="btn px-5 py-3 text-white fw-semibold"
               style={{
                 borderRadius: "40px",
                 background: "linear-gradient(90deg, #2C567E, #5B93C9)",
@@ -91,7 +101,6 @@ export default function SurveyForms() {
               Submit Feedback
             </button>
           </div>
-
         </div>
       </div>
     </main>

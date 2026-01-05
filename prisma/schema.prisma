@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -12,6 +12,7 @@ model Survey {
   Name           String?          @db.NVarChar(255)
   CreatedOn      DateTime         @db.DateTime
   UpdatedOn      DateTime?        @db.DateTime
+  Description    String?          @db.NVarChar(255)
   SurveyQuestion SurveyQuestion[]
   SurveyResponse SurveyResponse[]
 }
