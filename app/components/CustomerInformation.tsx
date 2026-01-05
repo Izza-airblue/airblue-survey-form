@@ -2,16 +2,19 @@ export const CustomerInformation = () => {
     return (
         <div className="card mb-4 shadow-sm">
             <div className="card-header text-white" style={{ background: "linear-gradient(90deg,#2C567E,#5B93C9)" }} >
-                <h5 className="mb-0">Passenger Information</h5>
+                <h5 className="mb-0">Guest Information</h5>
             </div>
             <div className="card-body">
                 <div className="row g-4">
                     <div className="col-md-4">
-                        <label className="form-label fw-semibold">PNR *</label>
+                        <label className="form-label fw-semibold flex items-center gap-2">
+                            <img src="/Icons/PNR.svg" alt="PNR" className="w-4 h-4" />
+                            PNR <span className="text-red-500">*</span>
+                            </label>
                         <input className="form-control form-control-lg" />
                     </div>
                     <div className="col-md-4">
-                        <label className="form-label fw-semibold">Contact No *</label>
+                        <label className="form-label fw-semibold">Contact No <span style={{color:"red"}}>*</span></label>
                         <input className="form-control form-control-lg" />
                     </div>
                     <div className="col-md-4">

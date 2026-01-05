@@ -34,9 +34,9 @@ export default function SurveyForms() {
           <CustomerInformation />
 
           {[
+            { id: "sales", title: "Drop Us A Message" },
             { id: "general", title: "General Survey" },
             { id: "meal", title: "Meal Survey" },
-            { id: "sales", title: "Drop Us A Message" },
           
           ].map(({ id, title }) => (
             <div key={id} className="card mb-3 shadow-sm">
