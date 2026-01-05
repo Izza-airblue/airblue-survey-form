@@ -31,7 +31,7 @@ export default function SurveyForms() {
     <main className="container py-5">
       <div className="absolute inset-0">
         <Image
-          src="../../Surveys/mainBanner.png"
+          src="/Surveys/mainBanner.png"
           alt="Banner"
           fill
           className="object-cover"
