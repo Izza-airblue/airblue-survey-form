@@ -44,7 +44,8 @@ export const CustomerInformation = () => {
                         </select>
                     </div>
                     <div className="col-md-4">
-                          <select className="form-select form-select-lg"> 
+                        <label className="form-label fw-semibold">Occupation</label>
+                        <select className="form-select form-select-lg"> 
                             <option value="">Please choose...</option>
                             <option value="Student">Student</option>
                             <option value="Armed Forces">Armed Forces</option>
@@ -59,7 +60,6 @@ export const CustomerInformation = () => {
                             <option value="Self Employed">Self Employed</option>
                             <option value="Others">Others</option>
                         </select>
-                        
                     </div>
                 </div>
             </div>
