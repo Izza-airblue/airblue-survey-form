@@ -7,6 +7,7 @@ const generalQuestions = [
     "6. How satisfied are you with cabin and lavatory cleanliness?",
     "7. How do you like our feedback mechanism?",
     "8. How satisfied were you with your flight today?",
+    "9. How satisfied were you with your flight today?",
   ];
 interface Props {
    ratings : Record<string, RatingValue>;
@@ -18,7 +19,11 @@ export const GeneralSurvey = ({ratings, setRatings} : Props) => {
         <>
             <div className="row g-4 mb-4">
                 {/* Q1 & Q2 */}
-                <div className="row g-4 mb-4"> <div className="col-md-6"> <label className="form-label fw-semibold"> 1. How did you purchase your ticket? </label> <select className="form-select"> <option>Please Choose...</option> <option>Website</option> <option>Mobile App</option> <option>Travel Agent</option> <option>Call Center</option> </select> </div> <div className="col-md-6"> <label className="form-label fw-semibold"> 2. How did you hear about us? </label> <select className="form-select"> <option>Please Choose...</option> <option>Social Media</option> <option>Website</option> <option>Friend / Family</option> <option>Advertisement</option> </select> </div> </div>
+                <div className="row g-4 mb-4"> <div className="col-md-6"> <label className="form-label fw-semibold"> 1. How did you purchase your ticket? </label> <select className="form-select"> <option>Please Choose...</option> <option>Website</option> <option>Mobile App</option> <option>Travel Agent</option><option>Sales Office</option>  <option>Call Center</option> </select> </div> 
+                <div className="col-md-6"> <label className="form-label fw-semibold"> 2. How did you hear about us? </label>
+                 <select className="form-select"> <option>Please Choose...</option> 
+                 <option>Social Media</option> <option>Frequent Traveler</option> <option>Google Search</option> <option>Website</option> 
+                 <option>Friend / Family</option> <option>Advertisement</option><option>Sales Office</option><option>Others</option> </select> </div> </div>
                 {generalQuestions.map((question, index) => {
                     const key = `general-${index}`;
                     return (

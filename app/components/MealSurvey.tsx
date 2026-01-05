@@ -15,6 +15,8 @@ interface Props {
 
 export const MealSurvey = ({ ratings, setRatings }: Props) => {
     const [mealType, setMealType] = useState("");
+    const [preferredMeal, setPreferredMeal] = useState("");
+    const [servedMeal, setServedMeal] = useState("");
 
     return (
         <>
@@ -39,30 +41,64 @@ export const MealSurvey = ({ ratings, setRatings }: Props) => {
             </div>
 
             <div className="mb-4">
-                <label className="form-label fw-semibold">
-                    5. Do you prefer a vegetarian or a non-vegetarian meal?
-                </label>
-                <div className="d-flex gap-4">
-                    {["Vegetarian Meal", "Non Vegetarian Meal"].map(
-                        (type) => (
-                            <div key={type} className="form-check">
-                                <input
-                                    className="form-check-input"
-                                    type="radio"
-                                    name="mealType"
-                                    onChange={() => setMealType(type)}
-                                />
-                                <label className="form-check-label">
-                                    {type}
-                                </label>
-                            </div>
-                        )
-                    )}
+            <label className="form-label fw-semibold">
+                5. Do you prefer a vegetarian or a non-vegetarian meal?
+            </label>
+
+            <div className="d-flex gap-4">
+                {[
+                { label: "Vegetarian", emoji: "🥬" },
+                { label: "Non Vegetarian", emoji: "🍗" },
+                ].map((item) => (
+                <div
+                    key={item.label}
+                    onClick={() => setPreferredMeal(item.label)}
+                    className={`flex items-center gap-2 py-1.5 p-2 border rounded-md cursor-pointer transition-all
+                    ${
+                        preferredMeal === item.label
+                        ? "border-2 border-primary bg-primary/10 shadow-sm"
+                        : "border-gray-300 hover:border-primary"
+                    }
+                    `}
+                    style={{ height: "40px", width: "170px" }}
+                >
+                    <span className="text-base">{item.emoji}</span>
+                    <span className="font-small">{item.label}</span>
                 </div>
+                ))}
+            </div>
+            </div>
+            <div className="mb-4">
+            <label className="form-label fw-semibold">
+                6. Which meal was served to you on flight?
+            </label>
+
+            <div className="d-flex gap-4">
+                {[
+                { label: "Vegetarian", emoji: "🥬" },
+                { label: "Non Vegetarian", emoji: "🍗" },
+                ].map((item) => (
+                <div
+                    key={item.label}
+                    onClick={() => setServedMeal(item.label)}
+                    className={`flex items-center gap-2 py-1.5 p-2 border rounded-md cursor-pointer transition-all
+                    ${
+                        servedMeal === item.label
+                        ? "border-2 border-primary shadow-md bg-primary/5 scale-105"
+                        : "border-gray-300 hover:border-primary"
+                    }
+                    `}
+                    style={{ height: "40px", width: "170px" }}
+                >
+                    <span className="text-base">{item.emoji}</span>
+                    <span className="font-small">{item.label}</span>
+                </div>
+                ))}
+            </div>
             </div>
             <div className="mb-4">
                 <label className="form-label fw-semibold">
-                    6. We would love to hear about your meal experience
+                    7. We would love to hear about your meal experience
                 </label>
                 <textarea
                     className="form-control"

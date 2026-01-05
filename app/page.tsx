@@ -17,18 +17,21 @@ const translations: Record<
   }
 > = {
   en: {
-    heading: "Thank you for flying with us",
+    heading: "Share your feedback with us",
     tagline: "Shaping Our Tomorrow, Together.",
-    sales: "Sales Feedback",
-    meal: "Meal Feedback",
     general: "General Feedback",
+    meal: "Meal Feedback",
+    sales: "Drop Us A Message",
+    
+    
   },
   ur: {
     heading: "ہمارے ساتھ سفر کرنے کا شکریہ",
     tagline: "کل کو بہتر بنانے کے لیے، مل کر۔",
-    sales: "فروخت سے متعلق رائے",
-    meal: "کھانے سے متعلق رائے",
     general: "عمومی رائے",
+    meal: "کھانے سے متعلق رائے",
+    sales: "فروخت سے متعلق رائے",
+    
   },
 };
 
@@ -39,20 +42,23 @@ export default function Home() {
   const t = translations[lang];
 
   const cards = [
-  {
-    title: t.sales,
-    img: "/Surveys/sales_feedback2.png",
-    route: "/surveys?open=sales",
+     {
+    title: t.general,
+    subtitle: "How was your overall experience with Airblue",
+    img: "/Surveys/general_feedbacks.png",
+    route: "/surveys?open=general",
   },
-  {
+    {
     title: t.meal,
+    subtitle: "How was your in flight meal experience",
     img: "/Surveys/meal_feedback1.png",
     route: "/surveys?open=meal",
   },
   {
-    title: t.general,
-    img: "/Surveys/general_feedbacks.png",
-    route: "/surveys?open=general",
+    title: t.sales,
+    subtitle: "Drop us a message and we will reach out",
+    img: "/Surveys/dropMessage.jpg",
+    route: "/surveys?open=sales",
   },
 ];
   return (
@@ -62,10 +68,10 @@ export default function Home() {
     >
       <div className="absolute inset-0">
         <Image
-          src="/Surveys/main_banner2.png"
+          src="/Surveys/main_banner1.png"
           alt="Banner"
           fill
-          className="object-cover"
+          className="object-cover brightness-85"
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -78,12 +84,12 @@ export default function Home() {
         <Image
           src="/Surveys/airblue.svg"
           alt="Airblue"
-          width={150}
-          height={40}
+          width={189}
+          height={38}
         />
 
         <div className="flex gap-2">
-          <button
+          <button style={{width:"96px", height:"38px", fontSize:"16px", fontWeight:"400"}}
             onClick={() => setLang("en")}
             className={`px-4 py-2 rounded text-sm ${
               lang === "en"
@@ -94,7 +100,7 @@ export default function Home() {
             English
           </button>
 
-          <button style={{width:"70px"}}
+          <button style={{width:"96px", height:"38px", fontSize:"16px", fontWeight:"400"}}
             onClick={() => setLang("ur")}
             className={`px-4 py-2 rounded text-sm ${
               lang === "ur"
@@ -108,17 +114,17 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-28 text-center">
-        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl" style={{fontSize:"55px", fontWeight:"700"}}>
+        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl" style={{fontSize:"55px", fontWeight:"600"}}>
           {t.heading}
         </h1>
 
-        <p className="text-white mt-2 text-lg sm:text-xl" style={{fontSize:"30px", fontWeight:"400"}}>
+        <p className="text-white mt-2 text-lg sm:text-xl" style={{fontSize:"35px", fontWeight:"400"}}>
           {t.tagline}
         </p>
         <br/><br/>
         <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
           {cards.map((card, i) => (
-            <div
+            <div style={{border:"2px solid white"}}
               key={i}
               onClick={() => router.push(card.route)}
               className="cursor-pointer rounded-xl overflow-hidden shadow-lg transform transition hover:scale-105"
@@ -130,11 +136,12 @@ export default function Home() {
                   fill
                   className="object-cover"
                 />
-                <div className="main_card_class absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-4 left-4">
-                  <h2 className="text-white text-lg">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute bottom-1 left-4 right-4 z-10">
+                  <h2 className="text-white text-lg" style={{fontSize:"22px", fontWeight:"400",textAlign:"justify"}}>
                     {card.title}
                   </h2>
+                  <p className="text-sm" style={{fontSize:"16px", fontWeight:"400",color:"white",textAlign:"justify"}}>{card.subtitle}</p>
                 </div>
               </div>
             </div>
