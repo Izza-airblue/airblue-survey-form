@@ -34,51 +34,51 @@ export default function SurveyForms() {
           <CustomerInformation />
 
           {[
-  { id: "sales", title: "Drop Us A Message" },
-  { id: "general", title: "General Survey" },
-  { id: "meal", title: "Meal Survey" },
-].map(({ id, title }) => (
-  <div key={id} className="card shadow-sm mb-2">
-    <button
-      type="button"
-      onClick={() => toggle(id)}
-      className="btn text-start fw-semibold card-header text-white d-flex justify-content-between align-items-center"
-      style={{ 
-        background: "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))"
-      }}
-    >
-      {title}
-      {/* Chevron icon rotates when open */}
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{
-          transition: "transform 0.3s",
-          transform: openAccordion === id ? "rotate(180deg)" : "rotate(0deg)",
-        }}
-      >
-        <path
-          d="M6 9L12 15L18 9"
-          stroke="white"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </button>
+            { id: "sales", title: "Drop Us A Message" },
+            { id: "general", title: "General Survey" },
+            { id: "meal", title: "Meal Survey" },
+          ].map(({ id, title }) => (
+            <div key={id} className="card shadow-sm mb-2">
+              <button
+                type="button"
+                onClick={() => toggle(id)}
+                className="btn text-start fw-semibold card-header text-white d-flex justify-content-between align-items-center"
+                style={{ 
+                  background: "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))"
+                }}
+              >
+                {title}
+                {/* Chevron icon rotates when open */}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    transition: "transform 0.3s",
+                    transform: openAccordion === id ? "rotate(180deg)" : "rotate(0deg)",
+                  }}
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
 
-    {openAccordion === id && (
-      <div className="card-body border-top">
-        {id === "meal" && <MealSurvey ratings={ratings} setRatings={setRatings} />}
-        {id === "sales" && <SalesSurvey />}
-        {id === "general" && <GeneralSurvey ratings={ratings} setRatings={setRatings} />}
-      </div>
-    )}
-  </div>
-))}
+              {openAccordion === id && (
+                <div className="card-body border-top">
+                  {id === "meal" && <MealSurvey ratings={ratings} setRatings={setRatings} />}
+                  {id === "sales" && <SalesSurvey />}
+                  {id === "general" && <GeneralSurvey ratings={ratings} setRatings={setRatings} />}
+                </div>
+              )}
+            </div>
+          ))}
 
           <div className="text-center mt-4">
             <button className="btn px-5 py-3 text-white fw-semibold"
