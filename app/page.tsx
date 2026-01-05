@@ -57,7 +57,7 @@ export default function Home() {
   {
     title: t.sales,
     subtitle: "Drop us a message and we will reach out",
-    img: "/Surveys/sales_feedback2.png",
+    img: "/Surveys/dropMessage.jpg",
     route: "/surveys?open=sales",
   },
 ];
@@ -114,11 +114,11 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-28 text-center">
-        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl" style={{fontSize:"55px", fontWeight:"700"}}>
+        <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl" style={{fontSize:"55px", fontWeight:"600"}}>
           {t.heading}
         </h1>
 
-        <p className="text-white mt-2 text-lg sm:text-xl" style={{fontSize:"30px", fontWeight:"400"}}>
+        <p className="text-white mt-2 text-lg sm:text-xl" style={{fontSize:"35px", fontWeight:"400"}}>
           {t.tagline}
         </p>
         <br/><br/>
