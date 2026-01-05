@@ -66,15 +66,18 @@ export default function Home() {
       className="relative min-h-screen"
       dir={lang === "ur" ? "rtl" : "ltr"}
     >
-      <div className="absolute inset-0">
+      <div className="relative w-full min-h-[60vh] md:min-h-[80vh] lg:min-h-screen overflow-hidden">
         <Image
           src="/Surveys/mainBanner.png"
           alt="Banner"
           fill
-          className="object-cover"
           priority
+          sizes="100vw"
+          className="object-cover object-right md:object-center"
         />
-        {/* <div className="absolute inset-0 bg-black/40" /> */}
+
+        {/* Optional dark overlay */}
+        {/* <div className="absolute inset-0 bg-black/30" /> */}
       </div>
 
       <div
