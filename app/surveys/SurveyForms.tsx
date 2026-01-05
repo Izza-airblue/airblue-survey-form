@@ -40,14 +40,15 @@ export default function SurveyForms() {
           
           ].map(({ id, title }) => (
             <div key={id} className="card shadow-sm">
-              <button
-                type="button"
-                onClick={() => toggle(id)}
-                className="btn text-start fw-semibold card-header text-white"
-                style={{background: "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))"  }}
-              >
-                {title}
-              </button>
+            <button
+              type="button"
+              onClick={() => toggle(id)}
+              className="btn text-start fw-semibold card-header text-white d-flex justify-content-between align-items-center"
+              style={{background: "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))"}}
+            >
+              {title}
+              <span style={{fontSize: '1rem'}}>⌄</span> {/* Down arrow */}
+            </button>
               {openAccordion === id && (
                 <div className="card-body border-top">
 
