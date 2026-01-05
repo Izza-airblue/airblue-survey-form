@@ -7,6 +7,7 @@ import { MealSurvey } from "../components/MealSurvey";
 import { SalesSurvey } from "../components/SalesSurvey";
 import { GeneralSurvey } from "../components/GeneralSurvey";
 import { CustomerInformation } from "../components/CustomerInformation";
+import Image from "next/image";
 
 export default function SurveyForms() {
   const searchParams = useSearchParams();
@@ -28,6 +29,16 @@ export default function SurveyForms() {
   return (
 
     <main className="container py-5">
+      <div className="absolute inset-0">
+        <Image
+          src="../Surveys/mainBanner.png"
+          alt="Banner"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* <div className="absolute inset-0 bg-black/40" /> */}
+      </div>
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-9">
 
