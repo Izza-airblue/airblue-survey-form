@@ -1,9 +1,10 @@
+import { Suspense } from "react";
 import { prisma } from "@/lib/prisma";
 import SurveyRenderer from "./SurveyRenderer";
 import type { SurveyWithRelations } from "../types/survey";
 
 export default async function SurveyPage() {
-  const surveys : SurveyWithRelations[] = await prisma.survey.findMany({
+  const surveys: SurveyWithRelations[] = await prisma.survey.findMany({
     orderBy: { SurveyID: "asc" },
     include: {
       SurveyQuestion: {
@@ -15,5 +16,9 @@ export default async function SurveyPage() {
     },
   });
 
-  return <SurveyRenderer surveys={surveys} />;
+  return (
+    <Suspense fallback={<div className="p-5 text-center">Loading surveys...</div>}>
+      <SurveyRenderer surveys={surveys} />
+    </Suspense>
+  );
 }
