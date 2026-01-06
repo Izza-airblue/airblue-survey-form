@@ -65,9 +65,9 @@ export const CustomerInformation = ({
             <label className="form-label fw-semibold">Flight No</label>
             <input
               className="form-control form-control-lg"
-              value={customer.FlightNo ?? ""}
+              value={customer.FlightNumber ?? ""}
               onChange={(e) =>
-                onChange({ ...customer, FlightNo: e.target.value })
+                onChange({ ...customer, FlightNumber: e.target.value })
               }
             />
           </div>
