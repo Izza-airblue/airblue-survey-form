@@ -50,7 +50,7 @@ export default function SurveyForms() {
     <main className="relative container py-5">
 
       {/* ===== Background Banner (FIXED & SAFE) ===== */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0">
         <Image
           src="/Surveys/mainBanner.png"
           alt="Banner"
