@@ -33,7 +33,7 @@ export const CustomerInformation = () => {
                     </div>
                     <div className="col-md-4">
                         <label className="form-label fw-semibold">Flight No</label>
-                        <input className="form-control form-control-lg" placeholder="Enter your flight number"/>
+                        <input className="form-control" placeholder="Enter your flight number"/>
                     </div>
                     <div className="col-md-4">
                         <label className="form-label fw-semibold">Gender</label>
@@ -45,7 +45,7 @@ export const CustomerInformation = () => {
                     </div>
                     <div className="col-md-4">
                         <label className="form-label fw-semibold">Occupation</label>
-                        <select className="form-select form-select-lg"> 
+                        <select className="form-select"> 
                             <option value="">Please choose...</option>
                             <option value="Student">Student</option>
                             <option value="Armed Forces">Armed Forces</option>
