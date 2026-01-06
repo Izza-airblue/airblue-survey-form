@@ -60,14 +60,14 @@ export default function SurveyForms() {
             <CustomerInformation />
 
             {orderedSurveys.map(({ id, title }) => (
-              <div key={id} className="card shadow-sm mb-3">
+              <div key={id} className="card shadow-sm mb-2">
                 <button
                   type="button"
                   onClick={() => toggle(id)}
                   className="btn text-start fw-semibold card-header text-white d-flex justify-content-between align-items-center"
                   style={{
                     background:
-                      "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))",
+                      "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))", border:"1px solid white"
                   }}
                 >
                   {title}
