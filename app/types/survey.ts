@@ -1,4 +1,4 @@
-import type { Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 
 export type QuestionWithRelations =
   Prisma.SurveyQuestionGetPayload<{
@@ -8,14 +8,13 @@ export type QuestionWithRelations =
     };
   }>;
 
-export type SurveyWithRelations =
-  Prisma.SurveyGetPayload<{
-    include: {
-      SurveyQuestion: {
-        include: {
-          SurveyQuestionType: true;
-          SurveyQuestionOption: true;
-        };
+export type SurveyWithRelations = Prisma.SurveyGetPayload<{
+  include: {
+    SurveyQuestion: {
+      include: {
+        SurveyQuestionType: true;
+        SurveyQuestionOption: true;
       };
     };
-  }>;
+  };
+}>;
