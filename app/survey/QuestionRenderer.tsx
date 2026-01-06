@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { QuestionWithRelations } from "../types/survey";
 import { RatingValue } from "../components/common/RatingScaleConfig";
+import { SurveyQuestionOption } from "@/generated/prisma/client";
 export function getRatingIcon(optionText: string) {
     switch (optionText.toLowerCase()) {
         case "poor":
@@ -103,7 +104,7 @@ export function QuestionRenderer({
                     </label>
 
                     <div className="d-flex gap-3 flex-wrap">
-                        {question.SurveyQuestionOption.map((opt) => {
+                        {question.SurveyQuestionOption.map((opt : SurveyQuestionOption) => {
                             const icon = getRatingIcon(opt.OptionText);
 
                             const isSelected =
