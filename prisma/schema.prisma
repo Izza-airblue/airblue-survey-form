@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -12,12 +12,13 @@ model Survey {
   Name           String?          @db.NVarChar(255)
   CreatedOn      DateTime         @db.DateTime
   UpdatedOn      DateTime?        @db.DateTime
+  Description    String?          @db.NVarChar(255)
   SurveyQuestion SurveyQuestion[]
   SurveyResponse SurveyResponse[]
 }
 
 model SurveyAnswer {
-  SurveyAnswerID         Int                   @id(map: "PK__SurveyAn__E5C3DB530ABB6DC8") @default(autoincrement())
+  SurveyAnswerID         Int                   @id(map: "PK__SurveyAn__E5C3DB53C4C6E3DA") @default(autoincrement())
   SurveyQuestionOptionID Int?
   SurveyReponseID        Int?
   AnswerText             String?               @db.NVarChar(100)
@@ -39,8 +40,8 @@ model SurveyQuestion {
 }
 
 model SurveyQuestionOption {
-  SurveyQuestionOptionID Int             @id(map: "PK__SurveyQu__EC4DD6A73573351F") @default(autoincrement())
-  OptionText             String          @db.NVarChar(10)
+  SurveyQuestionOptionID Int             @id(map: "PK__SurveyQu__EC4DD6A703D5E544") @default(autoincrement())
+  OptionText             String          @db.NVarChar(255)
   SurveyQuestionID       Int?
   SurveyAnswer           SurveyAnswer[]
   SurveyQuestion         SurveyQuestion? @relation(fields: [SurveyQuestionID], references: [SurveyQuestionID], onDelete: NoAction, onUpdate: NoAction, map: "FK__SurveyQue__Surve__08B54D69")
@@ -56,6 +57,12 @@ model SurveyResponse {
   SurveyResponseID Int            @id(map: "PK__SurveyRe__3D1369DACCBB429B") @default(autoincrement())
   SurveyID         Int?
   SubmittedOn      DateTime       @db.DateTime
+  Pnr              String         @db.NVarChar(6)
+  Email            String?        @db.NVarChar(50)
+  ContactNumber    String?        @db.NVarChar(20)
+  FlightNumber     String?        @db.NVarChar(10)
+  Gender           String?        @db.NVarChar(10)
+  Occupation       String?        @db.NVarChar(30)
   SurveyAnswer     SurveyAnswer[]
   Survey           Survey?        @relation(fields: [SurveyID], references: [SurveyID], onDelete: NoAction, onUpdate: NoAction, map: "FK__SurveyRes__Surve__0B91BA14")
 }
