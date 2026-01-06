@@ -45,7 +45,6 @@ export default function SurveyForms({ surveysCount }: Props) {
 
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-9">
-          <CustomerInformation />
 
           {[
             { id: "sales", title: "Drop Us A Message" },

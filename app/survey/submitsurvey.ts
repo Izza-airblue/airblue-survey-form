@@ -24,7 +24,7 @@ export async function submitSurveys(answers: AnswerInput[]) {
     }, {})
   );
 
-  for (const surveyAnswers of grouped) {
+  for (const surveyAnswers of grouped as any[]) {
     const surveyId : number = surveyAnswers[0].surveyId;
 
     await prisma.surveyResponse.create({

@@ -75,7 +75,7 @@ export default function SurveyRenderer({
   };
 
   const handleSubmit = async () => {
-    const errors = validateBeforeSubmit(customer, answers, surveys);
+    const errors = validateBeforeSubmit(customer);
 
     if (errors.length > 0) {
       alert(errors.join("\n"));

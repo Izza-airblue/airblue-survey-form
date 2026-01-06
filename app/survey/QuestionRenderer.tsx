@@ -66,6 +66,15 @@ export function getRatingIcon(optionText: string) {
             return null;
     }
 }
+type AnswerState = Record<
+  number,
+  {
+    surveyId: number;
+    questionId: number;
+    optionId?: number;
+    answerText?: string;
+  }
+>;
 
 export function QuestionRenderer({
     question,
@@ -85,7 +94,7 @@ export function QuestionRenderer({
 }) {
     const [rating, setRating] = useState<RatingValue | undefined>();
     const [selectedOptionId, setSelectedOptionId] = useState<number>();
-    switch (question.SurveyQuestionType.QuestionType) {
+    switch (question.SurveyQuestionType?.QuestionType) {
         case "MCQ":
             return (
                 <div className="mb-4">
