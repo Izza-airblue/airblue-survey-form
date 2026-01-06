@@ -37,7 +37,7 @@ export const CustomerInformation = () => {
                     </div>
                     <div className="col-md-4">
                         <label className="form-label fw-semibold">Gender</label>
-                        <select className="form-select form-select-lg"> <option value="">Please choose...</option>
+                        <select className="form-select"> <option value="">Please choose...</option>
                             <option>Male</option>
                             <option>Female</option>
                             <option>Prefer not to say</option>
