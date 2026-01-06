@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { RatingValue } from "../components/common/RatingScale";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 import { MealSurvey } from "../components/MealSurvey";
 import { SalesSurvey } from "../components/SalesSurvey";
 import { GeneralSurvey } from "../components/GeneralSurvey";
 import { CustomerInformation } from "../components/CustomerInformation";
+import { RatingValue } from "../components/common/RatingScale";
 
 type Props = {
   surveysCount: number;
@@ -19,10 +20,18 @@ export default function SurveyForms({ surveysCount }: Props) {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
   const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
 
-  useEffect(() => {
-    if (defaultOpen) {
-      setOpenAccordion(defaultOpen);
-    }
+  const surveys = [
+    { id: "sales", title: "Drop Us A Message" },
+    { id: "general", title: "General Survey" },
+    { id: "meal", title: "Meal Survey" },
+  ];
+
+  const orderedSurveys = useMemo(() => {
+    if (!defaultOpen) return surveys;
+    return [
+      surveys.find(s => s.id === defaultOpen)!,
+      ...surveys.filter(s => s.id !== defaultOpen),
+    ];
   }, [defaultOpen]);
 
   const toggle = (id: string) =>
@@ -103,6 +112,7 @@ export default function SurveyForms({ surveysCount }: Props) {
           </div>
         </div>
       </div>
+
     </main>
   );
 }
