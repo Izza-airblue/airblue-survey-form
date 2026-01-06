@@ -964,7 +964,13 @@ export type SurveyQuestionTypeScalarFieldEnum = (typeof SurveyQuestionTypeScalar
 export const SurveyResponseScalarFieldEnum = {
   SurveyResponseID: 'SurveyResponseID',
   SurveyID: 'SurveyID',
-  SubmittedOn: 'SubmittedOn'
+  SubmittedOn: 'SubmittedOn',
+  Pnr: 'Pnr',
+  Email: 'Email',
+  ContactNumber: 'ContactNumber',
+  FlightNumber: 'FlightNumber',
+  Gender: 'Gender',
+  Occupation: 'Occupation'
 } as const
 
 export type SurveyResponseScalarFieldEnum = (typeof SurveyResponseScalarFieldEnum)[keyof typeof SurveyResponseScalarFieldEnum]

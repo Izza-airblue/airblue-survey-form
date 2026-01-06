@@ -40,18 +40,36 @@ export type SurveyResponseMinAggregateOutputType = {
   SurveyResponseID: number | null
   SurveyID: number | null
   SubmittedOn: Date | null
+  Pnr: string | null
+  Email: string | null
+  ContactNumber: string | null
+  FlightNumber: string | null
+  Gender: string | null
+  Occupation: string | null
 }
 
 export type SurveyResponseMaxAggregateOutputType = {
   SurveyResponseID: number | null
   SurveyID: number | null
   SubmittedOn: Date | null
+  Pnr: string | null
+  Email: string | null
+  ContactNumber: string | null
+  FlightNumber: string | null
+  Gender: string | null
+  Occupation: string | null
 }
 
 export type SurveyResponseCountAggregateOutputType = {
   SurveyResponseID: number
   SurveyID: number
   SubmittedOn: number
+  Pnr: number
+  Email: number
+  ContactNumber: number
+  FlightNumber: number
+  Gender: number
+  Occupation: number
   _all: number
 }
 
@@ -70,18 +88,36 @@ export type SurveyResponseMinAggregateInputType = {
   SurveyResponseID?: true
   SurveyID?: true
   SubmittedOn?: true
+  Pnr?: true
+  Email?: true
+  ContactNumber?: true
+  FlightNumber?: true
+  Gender?: true
+  Occupation?: true
 }
 
 export type SurveyResponseMaxAggregateInputType = {
   SurveyResponseID?: true
   SurveyID?: true
   SubmittedOn?: true
+  Pnr?: true
+  Email?: true
+  ContactNumber?: true
+  FlightNumber?: true
+  Gender?: true
+  Occupation?: true
 }
 
 export type SurveyResponseCountAggregateInputType = {
   SurveyResponseID?: true
   SurveyID?: true
   SubmittedOn?: true
+  Pnr?: true
+  Email?: true
+  ContactNumber?: true
+  FlightNumber?: true
+  Gender?: true
+  Occupation?: true
   _all?: true
 }
 
@@ -175,6 +211,12 @@ export type SurveyResponseGroupByOutputType = {
   SurveyResponseID: number
   SurveyID: number | null
   SubmittedOn: Date
+  Pnr: string
+  Email: string | null
+  ContactNumber: string | null
+  FlightNumber: string | null
+  Gender: string | null
+  Occupation: string | null
   _count: SurveyResponseCountAggregateOutputType | null
   _avg: SurveyResponseAvgAggregateOutputType | null
   _sum: SurveyResponseSumAggregateOutputType | null
@@ -204,6 +246,12 @@ export type SurveyResponseWhereInput = {
   SurveyResponseID?: Prisma.IntFilter<"SurveyResponse"> | number
   SurveyID?: Prisma.IntNullableFilter<"SurveyResponse"> | number | null
   SubmittedOn?: Prisma.DateTimeFilter<"SurveyResponse"> | Date | string
+  Pnr?: Prisma.StringFilter<"SurveyResponse"> | string
+  Email?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  ContactNumber?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  FlightNumber?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  Gender?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  Occupation?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
   SurveyAnswer?: Prisma.SurveyAnswerListRelationFilter
   Survey?: Prisma.XOR<Prisma.SurveyNullableScalarRelationFilter, Prisma.SurveyWhereInput> | null
 }
@@ -212,6 +260,12 @@ export type SurveyResponseOrderByWithRelationInput = {
   SurveyResponseID?: Prisma.SortOrder
   SurveyID?: Prisma.SortOrderInput | Prisma.SortOrder
   SubmittedOn?: Prisma.SortOrder
+  Pnr?: Prisma.SortOrder
+  Email?: Prisma.SortOrderInput | Prisma.SortOrder
+  ContactNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  FlightNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  Gender?: Prisma.SortOrderInput | Prisma.SortOrder
+  Occupation?: Prisma.SortOrderInput | Prisma.SortOrder
   SurveyAnswer?: Prisma.SurveyAnswerOrderByRelationAggregateInput
   Survey?: Prisma.SurveyOrderByWithRelationInput
 }
@@ -223,6 +277,12 @@ export type SurveyResponseWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SurveyResponseWhereInput | Prisma.SurveyResponseWhereInput[]
   SurveyID?: Prisma.IntNullableFilter<"SurveyResponse"> | number | null
   SubmittedOn?: Prisma.DateTimeFilter<"SurveyResponse"> | Date | string
+  Pnr?: Prisma.StringFilter<"SurveyResponse"> | string
+  Email?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  ContactNumber?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  FlightNumber?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  Gender?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  Occupation?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
   SurveyAnswer?: Prisma.SurveyAnswerListRelationFilter
   Survey?: Prisma.XOR<Prisma.SurveyNullableScalarRelationFilter, Prisma.SurveyWhereInput> | null
 }, "SurveyResponseID">
@@ -231,6 +291,12 @@ export type SurveyResponseOrderByWithAggregationInput = {
   SurveyResponseID?: Prisma.SortOrder
   SurveyID?: Prisma.SortOrderInput | Prisma.SortOrder
   SubmittedOn?: Prisma.SortOrder
+  Pnr?: Prisma.SortOrder
+  Email?: Prisma.SortOrderInput | Prisma.SortOrder
+  ContactNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  FlightNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  Gender?: Prisma.SortOrderInput | Prisma.SortOrder
+  Occupation?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.SurveyResponseCountOrderByAggregateInput
   _avg?: Prisma.SurveyResponseAvgOrderByAggregateInput
   _max?: Prisma.SurveyResponseMaxOrderByAggregateInput
@@ -245,10 +311,22 @@ export type SurveyResponseScalarWhereWithAggregatesInput = {
   SurveyResponseID?: Prisma.IntWithAggregatesFilter<"SurveyResponse"> | number
   SurveyID?: Prisma.IntNullableWithAggregatesFilter<"SurveyResponse"> | number | null
   SubmittedOn?: Prisma.DateTimeWithAggregatesFilter<"SurveyResponse"> | Date | string
+  Pnr?: Prisma.StringWithAggregatesFilter<"SurveyResponse"> | string
+  Email?: Prisma.StringNullableWithAggregatesFilter<"SurveyResponse"> | string | null
+  ContactNumber?: Prisma.StringNullableWithAggregatesFilter<"SurveyResponse"> | string | null
+  FlightNumber?: Prisma.StringNullableWithAggregatesFilter<"SurveyResponse"> | string | null
+  Gender?: Prisma.StringNullableWithAggregatesFilter<"SurveyResponse"> | string | null
+  Occupation?: Prisma.StringNullableWithAggregatesFilter<"SurveyResponse"> | string | null
 }
 
 export type SurveyResponseCreateInput = {
   SubmittedOn: Date | string
+  Pnr: string
+  Email?: string | null
+  ContactNumber?: string | null
+  FlightNumber?: string | null
+  Gender?: string | null
+  Occupation?: string | null
   SurveyAnswer?: Prisma.SurveyAnswerCreateNestedManyWithoutSurveyResponseInput
   Survey?: Prisma.SurveyCreateNestedOneWithoutSurveyResponseInput
 }
@@ -257,11 +335,23 @@ export type SurveyResponseUncheckedCreateInput = {
   SurveyResponseID?: number
   SurveyID?: number | null
   SubmittedOn: Date | string
+  Pnr: string
+  Email?: string | null
+  ContactNumber?: string | null
+  FlightNumber?: string | null
+  Gender?: string | null
+  Occupation?: string | null
   SurveyAnswer?: Prisma.SurveyAnswerUncheckedCreateNestedManyWithoutSurveyResponseInput
 }
 
 export type SurveyResponseUpdateInput = {
   SubmittedOn?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Pnr?: Prisma.StringFieldUpdateOperationsInput | string
+  Email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ContactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FlightNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SurveyAnswer?: Prisma.SurveyAnswerUpdateManyWithoutSurveyResponseNestedInput
   Survey?: Prisma.SurveyUpdateOneWithoutSurveyResponseNestedInput
 }
@@ -270,22 +360,46 @@ export type SurveyResponseUncheckedUpdateInput = {
   SurveyResponseID?: Prisma.IntFieldUpdateOperationsInput | number
   SurveyID?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   SubmittedOn?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Pnr?: Prisma.StringFieldUpdateOperationsInput | string
+  Email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ContactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FlightNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SurveyAnswer?: Prisma.SurveyAnswerUncheckedUpdateManyWithoutSurveyResponseNestedInput
 }
 
 export type SurveyResponseCreateManyInput = {
   SurveyID?: number | null
   SubmittedOn: Date | string
+  Pnr: string
+  Email?: string | null
+  ContactNumber?: string | null
+  FlightNumber?: string | null
+  Gender?: string | null
+  Occupation?: string | null
 }
 
 export type SurveyResponseUpdateManyMutationInput = {
   SubmittedOn?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Pnr?: Prisma.StringFieldUpdateOperationsInput | string
+  Email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ContactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FlightNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type SurveyResponseUncheckedUpdateManyInput = {
   SurveyResponseID?: Prisma.IntFieldUpdateOperationsInput | number
   SurveyID?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   SubmittedOn?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Pnr?: Prisma.StringFieldUpdateOperationsInput | string
+  Email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ContactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FlightNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type SurveyResponseListRelationFilter = {
@@ -307,6 +421,12 @@ export type SurveyResponseCountOrderByAggregateInput = {
   SurveyResponseID?: Prisma.SortOrder
   SurveyID?: Prisma.SortOrder
   SubmittedOn?: Prisma.SortOrder
+  Pnr?: Prisma.SortOrder
+  Email?: Prisma.SortOrder
+  ContactNumber?: Prisma.SortOrder
+  FlightNumber?: Prisma.SortOrder
+  Gender?: Prisma.SortOrder
+  Occupation?: Prisma.SortOrder
 }
 
 export type SurveyResponseAvgOrderByAggregateInput = {
@@ -318,12 +438,24 @@ export type SurveyResponseMaxOrderByAggregateInput = {
   SurveyResponseID?: Prisma.SortOrder
   SurveyID?: Prisma.SortOrder
   SubmittedOn?: Prisma.SortOrder
+  Pnr?: Prisma.SortOrder
+  Email?: Prisma.SortOrder
+  ContactNumber?: Prisma.SortOrder
+  FlightNumber?: Prisma.SortOrder
+  Gender?: Prisma.SortOrder
+  Occupation?: Prisma.SortOrder
 }
 
 export type SurveyResponseMinOrderByAggregateInput = {
   SurveyResponseID?: Prisma.SortOrder
   SurveyID?: Prisma.SortOrder
   SubmittedOn?: Prisma.SortOrder
+  Pnr?: Prisma.SortOrder
+  Email?: Prisma.SortOrder
+  ContactNumber?: Prisma.SortOrder
+  FlightNumber?: Prisma.SortOrder
+  Gender?: Prisma.SortOrder
+  Occupation?: Prisma.SortOrder
 }
 
 export type SurveyResponseSumOrderByAggregateInput = {
@@ -391,12 +523,24 @@ export type SurveyResponseUpdateOneWithoutSurveyAnswerNestedInput = {
 
 export type SurveyResponseCreateWithoutSurveyInput = {
   SubmittedOn: Date | string
+  Pnr: string
+  Email?: string | null
+  ContactNumber?: string | null
+  FlightNumber?: string | null
+  Gender?: string | null
+  Occupation?: string | null
   SurveyAnswer?: Prisma.SurveyAnswerCreateNestedManyWithoutSurveyResponseInput
 }
 
 export type SurveyResponseUncheckedCreateWithoutSurveyInput = {
   SurveyResponseID?: number
   SubmittedOn: Date | string
+  Pnr: string
+  Email?: string | null
+  ContactNumber?: string | null
+  FlightNumber?: string | null
+  Gender?: string | null
+  Occupation?: string | null
   SurveyAnswer?: Prisma.SurveyAnswerUncheckedCreateNestedManyWithoutSurveyResponseInput
 }
 
@@ -432,10 +576,22 @@ export type SurveyResponseScalarWhereInput = {
   SurveyResponseID?: Prisma.IntFilter<"SurveyResponse"> | number
   SurveyID?: Prisma.IntNullableFilter<"SurveyResponse"> | number | null
   SubmittedOn?: Prisma.DateTimeFilter<"SurveyResponse"> | Date | string
+  Pnr?: Prisma.StringFilter<"SurveyResponse"> | string
+  Email?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  ContactNumber?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  FlightNumber?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  Gender?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
+  Occupation?: Prisma.StringNullableFilter<"SurveyResponse"> | string | null
 }
 
 export type SurveyResponseCreateWithoutSurveyAnswerInput = {
   SubmittedOn: Date | string
+  Pnr: string
+  Email?: string | null
+  ContactNumber?: string | null
+  FlightNumber?: string | null
+  Gender?: string | null
+  Occupation?: string | null
   Survey?: Prisma.SurveyCreateNestedOneWithoutSurveyResponseInput
 }
 
@@ -443,6 +599,12 @@ export type SurveyResponseUncheckedCreateWithoutSurveyAnswerInput = {
   SurveyResponseID?: number
   SurveyID?: number | null
   SubmittedOn: Date | string
+  Pnr: string
+  Email?: string | null
+  ContactNumber?: string | null
+  FlightNumber?: string | null
+  Gender?: string | null
+  Occupation?: string | null
 }
 
 export type SurveyResponseCreateOrConnectWithoutSurveyAnswerInput = {
@@ -463,6 +625,12 @@ export type SurveyResponseUpdateToOneWithWhereWithoutSurveyAnswerInput = {
 
 export type SurveyResponseUpdateWithoutSurveyAnswerInput = {
   SubmittedOn?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Pnr?: Prisma.StringFieldUpdateOperationsInput | string
+  Email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ContactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FlightNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   Survey?: Prisma.SurveyUpdateOneWithoutSurveyResponseNestedInput
 }
 
@@ -470,26 +638,56 @@ export type SurveyResponseUncheckedUpdateWithoutSurveyAnswerInput = {
   SurveyResponseID?: Prisma.IntFieldUpdateOperationsInput | number
   SurveyID?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   SubmittedOn?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Pnr?: Prisma.StringFieldUpdateOperationsInput | string
+  Email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ContactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FlightNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type SurveyResponseCreateManySurveyInput = {
   SubmittedOn: Date | string
+  Pnr: string
+  Email?: string | null
+  ContactNumber?: string | null
+  FlightNumber?: string | null
+  Gender?: string | null
+  Occupation?: string | null
 }
 
 export type SurveyResponseUpdateWithoutSurveyInput = {
   SubmittedOn?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Pnr?: Prisma.StringFieldUpdateOperationsInput | string
+  Email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ContactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FlightNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SurveyAnswer?: Prisma.SurveyAnswerUpdateManyWithoutSurveyResponseNestedInput
 }
 
 export type SurveyResponseUncheckedUpdateWithoutSurveyInput = {
   SurveyResponseID?: Prisma.IntFieldUpdateOperationsInput | number
   SubmittedOn?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Pnr?: Prisma.StringFieldUpdateOperationsInput | string
+  Email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ContactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FlightNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SurveyAnswer?: Prisma.SurveyAnswerUncheckedUpdateManyWithoutSurveyResponseNestedInput
 }
 
 export type SurveyResponseUncheckedUpdateManyWithoutSurveyInput = {
   SurveyResponseID?: Prisma.IntFieldUpdateOperationsInput | number
   SubmittedOn?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Pnr?: Prisma.StringFieldUpdateOperationsInput | string
+  Email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ContactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  FlightNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  Occupation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -527,6 +725,12 @@ export type SurveyResponseSelect<ExtArgs extends runtime.Types.Extensions.Intern
   SurveyResponseID?: boolean
   SurveyID?: boolean
   SubmittedOn?: boolean
+  Pnr?: boolean
+  Email?: boolean
+  ContactNumber?: boolean
+  FlightNumber?: boolean
+  Gender?: boolean
+  Occupation?: boolean
   SurveyAnswer?: boolean | Prisma.SurveyResponse$SurveyAnswerArgs<ExtArgs>
   Survey?: boolean | Prisma.SurveyResponse$SurveyArgs<ExtArgs>
   _count?: boolean | Prisma.SurveyResponseCountOutputTypeDefaultArgs<ExtArgs>
@@ -538,9 +742,15 @@ export type SurveyResponseSelectScalar = {
   SurveyResponseID?: boolean
   SurveyID?: boolean
   SubmittedOn?: boolean
+  Pnr?: boolean
+  Email?: boolean
+  ContactNumber?: boolean
+  FlightNumber?: boolean
+  Gender?: boolean
+  Occupation?: boolean
 }
 
-export type SurveyResponseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"SurveyResponseID" | "SurveyID" | "SubmittedOn", ExtArgs["result"]["surveyResponse"]>
+export type SurveyResponseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"SurveyResponseID" | "SurveyID" | "SubmittedOn" | "Pnr" | "Email" | "ContactNumber" | "FlightNumber" | "Gender" | "Occupation", ExtArgs["result"]["surveyResponse"]>
 export type SurveyResponseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   SurveyAnswer?: boolean | Prisma.SurveyResponse$SurveyAnswerArgs<ExtArgs>
   Survey?: boolean | Prisma.SurveyResponse$SurveyArgs<ExtArgs>
@@ -557,6 +767,12 @@ export type $SurveyResponsePayload<ExtArgs extends runtime.Types.Extensions.Inte
     SurveyResponseID: number
     SurveyID: number | null
     SubmittedOn: Date
+    Pnr: string
+    Email: string | null
+    ContactNumber: string | null
+    FlightNumber: string | null
+    Gender: string | null
+    Occupation: string | null
   }, ExtArgs["result"]["surveyResponse"]>
   composites: {}
 }
@@ -931,6 +1147,12 @@ export interface SurveyResponseFieldRefs {
   readonly SurveyResponseID: Prisma.FieldRef<"SurveyResponse", 'Int'>
   readonly SurveyID: Prisma.FieldRef<"SurveyResponse", 'Int'>
   readonly SubmittedOn: Prisma.FieldRef<"SurveyResponse", 'DateTime'>
+  readonly Pnr: Prisma.FieldRef<"SurveyResponse", 'String'>
+  readonly Email: Prisma.FieldRef<"SurveyResponse", 'String'>
+  readonly ContactNumber: Prisma.FieldRef<"SurveyResponse", 'String'>
+  readonly FlightNumber: Prisma.FieldRef<"SurveyResponse", 'String'>
+  readonly Gender: Prisma.FieldRef<"SurveyResponse", 'String'>
+  readonly Occupation: Prisma.FieldRef<"SurveyResponse", 'String'>
 }
     
 
