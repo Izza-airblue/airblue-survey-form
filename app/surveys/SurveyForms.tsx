@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { RatingValue } from "../components/common/RatingScale";
 import { useSearchParams } from "next/navigation";
 import { MealSurvey } from "../components/MealSurvey";
@@ -9,31 +9,37 @@ import { GeneralSurvey } from "../components/GeneralSurvey";
 import { CustomerInformation } from "../components/CustomerInformation";
 import Image from "next/image";
 
+type SurveyItem = {
+  id: "sales" | "general" | "meal";
+  title: string;
+};
+
 export default function SurveyForms() {
   const searchParams = useSearchParams();
-  const defaultOpen = searchParams.get("open");
+  const defaultOpen = searchParams.get("open") as SurveyItem["id"] | null;
 
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
   const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
 
-  // Refs for scrolling
-  const refs = {
-    sales: useRef<HTMLDivElement>(null),
-    general: useRef<HTMLDivElement>(null),
-    meal: useRef<HTMLDivElement>(null),
-  };
+  const surveys: SurveyItem[] = [
+    { id: "sales", title: "Drop Us A Message" },
+    { id: "general", title: "General Survey" },
+    { id: "meal", title: "Meal Survey" },
+  ];
+
+  // 🔥 Reorder surveys so clicked one comes FIRST
+  const orderedSurveys = useMemo(() => {
+    if (!defaultOpen) return surveys;
+
+    return [
+      surveys.find(s => s.id === defaultOpen)!,
+      ...surveys.filter(s => s.id !== defaultOpen),
+    ];
+  }, [defaultOpen]);
 
   useEffect(() => {
-    if (defaultOpen && refs[defaultOpen as keyof typeof refs]) {
+    if (defaultOpen) {
       setOpenAccordion(defaultOpen);
-
-      // Smooth scroll opened accordion to top
-      setTimeout(() => {
-        refs[defaultOpen as keyof typeof refs]?.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 200);
     }
   }, [defaultOpen]);
 
@@ -43,7 +49,7 @@ export default function SurveyForms() {
   return (
     <main className="relative container py-5">
 
-      {/* ===== Background Banner ===== */}
+      {/* ===== Background Banner (FIXED & SAFE) ===== */}
       <div className="absolute inset-0 -z-10">
         <Image
           src="/Surveys/mainBanner.png"
@@ -60,16 +66,8 @@ export default function SurveyForms() {
 
           <CustomerInformation />
 
-          {[
-            { id: "sales", title: "Drop Us A Message" },
-            { id: "general", title: "General Survey" },
-            { id: "meal", title: "Meal Survey" },
-          ].map(({ id, title }) => (
-            <div
-              key={id}
-              ref={refs[id as keyof typeof refs]}
-              className="card shadow-sm mb-3"
-            >
+          {orderedSurveys.map(({ id, title }) => (
+            <div key={id} className="card shadow-sm mb-3">
               <button
                 type="button"
                 onClick={() => toggle(id)}
