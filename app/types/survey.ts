@@ -1,9 +1,3 @@
-import type {
-    Survey,
-    SurveyQuestion,
-    SurveyQuestionType,
-    SurveyQuestionOption,
-} from "@prisma/client";
 import { Prisma } from "@prisma/client";
 
 export type QuestionWithRelations =
