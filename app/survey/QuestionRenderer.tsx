@@ -154,7 +154,7 @@ export function QuestionRenderer({
                         }
                     >
                         <option value="">Please Choose...</option>
-                        {question.SurveyQuestionOption.map((opt) => (
+                        {question.SurveyQuestionOption.map((opt : SurveyQuestionOption) => (
                             <option
                                 key={opt.SurveyQuestionOptionID}
                                 value={opt.SurveyQuestionOptionID}
