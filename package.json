@@ -24,7 +24,7 @@
     "@types/mssql": "^9.1.8",
     "@types/node": "^20.19.27",
     "@types/pg": "^8.16.0",
-    "@types/react": "^19",npm 
+    "@types/react": "^19", 
     "@types/react-dom": "^19",
     "eslint": "^9",
      "prisma": "^7.2.0",
