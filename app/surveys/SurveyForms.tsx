@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import Image from "next/image";
 import { MealSurvey } from "../components/MealSurvey";
 import { SalesSurvey } from "../components/SalesSurvey";
 import { GeneralSurvey } from "../components/GeneralSurvey";
-import { CustomerInformation } from "../components/CustomerInformation";
 import { RatingValue } from "../components/common/RatingScale";
 
 type Props = {
@@ -17,51 +15,56 @@ export default function SurveyForms({ surveysCount }: Props) {
   const searchParams = useSearchParams();
   const defaultOpen = searchParams.get("open");
 
-  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
-  const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
-
   const surveys = [
     { id: "sales", title: "Drop Us A Message" },
     { id: "general", title: "General Survey" },
     { id: "meal", title: "Meal Survey" },
   ];
 
-  const orderedSurveys = useMemo(() => {
-    if (!defaultOpen) return surveys;
-    return [
-      surveys.find(s => s.id === defaultOpen)!,
-      ...surveys.filter(s => s.id !== defaultOpen),
-    ];
-  }, [defaultOpen]);
+  // State to track which accordion is open
+  const [openAccordion, setOpenAccordion] = useState<string | null>(defaultOpen);
 
-  const toggle = (id: string) =>
-    setOpenAccordion(openAccordion === id ? null : id);
+  // State to track which survey should appear on top
+  const [topSurvey, setTopSurvey] = useState<string | null>(defaultOpen);
+
+  const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
+
+  const toggle = (id: string) => {
+    if (openAccordion === id) {
+      // Close the current accordion
+      setOpenAccordion(null);
+      setTopSurvey(null); // Reset top survey when closing
+    } else {
+      // Open the clicked accordion and move it to top
+      setOpenAccordion(id);
+      setTopSurvey(id);
+    }
+  };
+
+  // Reorder surveys: only the open survey comes first
+  const orderedSurveys = useMemo(() => {
+    if (!topSurvey) return surveys;
+    const top = surveys.find((s) => s.id === topSurvey);
+    const others = surveys.filter((s) => s.id !== topSurvey);
+    return top ? [top, ...others] : surveys;
+  }, [topSurvey]);
 
   return (
     <main className="container py-5">
-      {/* <div>
-        <h1>Total Surveys: {surveysCount}</h1>
-      </div> */}
-
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-9">
-
-          {[
-            { id: "sales", title: "Drop Us A Message" },
-            { id: "general", title: "General Survey" },
-            { id: "meal", title: "Meal Survey" },
-          ].map(({ id, title }) => (
+          {orderedSurveys.map(({ id, title }) => (
             <div key={id} className="card shadow-sm mb-2">
               <button
                 type="button"
                 onClick={() => toggle(id)}
                 className="btn text-start fw-semibold card-header text-white d-flex justify-content-between align-items-center"
                 style={{
-                  background: "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))"
+                  background:
+                    "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))",
                 }}
               >
                 {title}
-                {/* Chevron icon rotates when open */}
                 <svg
                   width="16"
                   height="16"
@@ -70,7 +73,8 @@ export default function SurveyForms({ surveysCount }: Props) {
                   xmlns="http://www.w3.org/2000/svg"
                   style={{
                     transition: "transform 0.3s",
-                    transform: openAccordion === id ? "rotate(180deg)" : "rotate(0deg)",
+                    transform:
+                      openAccordion === id ? "rotate(180deg)" : "rotate(0deg)",
                   }}
                 >
                   <path
@@ -111,7 +115,6 @@ export default function SurveyForms({ surveysCount }: Props) {
           </div>
         </div>
       </div>
-
     </main>
   );
 }

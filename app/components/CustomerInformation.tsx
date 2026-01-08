@@ -10,7 +10,7 @@ export const CustomerInformation = ({
   onChange: (data: Partial<CustomerInfo>) => void;
 }) => {
   return (
-    <div className="card mb-1 shadow-sm">
+    <div className="card mb-1 shadow-sm" style={{border:"1px solid white"}}>
       <div
         className="card-header text-white"
         style={{
@@ -28,7 +28,8 @@ export const CustomerInformation = ({
               PNR <span className="text-danger">*</span>
             </label>
             <input
-              className="form-control form-control-lg"
+              className="form-control"
+              placeholder="Enter your ticket number"
               value={customer.Pnr ?? ""}
               onChange={(e) =>
                 onChange({ ...customer, Pnr: e.target.value })
@@ -41,7 +42,8 @@ export const CustomerInformation = ({
               Contact No <span className="text-danger">*</span>
             </label>
             <input
-              className="form-control form-control-lg"
+              className="form-control"
+              placeholder="Enter your contact number"
               value={customer.ContactNumber ?? ""}
               onChange={(e) =>
                 onChange({ ...customer, ContactNumber: e.target.value })
@@ -53,7 +55,8 @@ export const CustomerInformation = ({
             <label className="form-label fw-semibold">Email</label>
             <input
               type="email"
-              className="form-control form-control-lg"
+              className="form-control"
+              placeholder="Enter your email ID"
               value={customer.Email ?? ""}
               onChange={(e) =>
                 onChange({ ...customer, Email: e.target.value })
@@ -64,7 +67,8 @@ export const CustomerInformation = ({
           <div className="col-md-4">
             <label className="form-label fw-semibold">Flight No</label>
             <input
-              className="form-control form-control-lg"
+              className="form-control"
+              placeholder="Enter your flight number"
               value={customer.FlightNumber ?? ""}
               onChange={(e) =>
                 onChange({ ...customer, FlightNumber: e.target.value })
@@ -75,7 +79,7 @@ export const CustomerInformation = ({
           <div className="col-md-4">
             <label className="form-label fw-semibold">Gender</label>
             <select
-              className="form-select form-select-lg"
+              className="form-select"
               value={customer.Gender ?? ""}
               onChange={(e) =>
                 onChange({ ...customer, Gender: e.target.value })
@@ -91,7 +95,7 @@ export const CustomerInformation = ({
           <div className="col-md-4">
             <label className="form-label fw-semibold">Occupation</label>
             <select
-              className="form-select form-select-lg"
+              className="form-select"
               value={customer.Occupation ?? ""}
               onChange={(e) =>
                 onChange({ ...customer, Occupation: e.target.value })

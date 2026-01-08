@@ -273,8 +273,8 @@ const translations: Record<
 
 const surveyImages: Record<number, string> = {
   1: "/Surveys/general_feedbacks.png",
-  2: "/Surveys/meal_feedback1.png",
-  3: "/Surveys/sales_feedback2.png",
+  2: "/Surveys/meal.png",
+  3: "/Surveys/dropMessage.jpg",
 };
 
 /* -------------------- Component -------------------- */
@@ -300,13 +300,13 @@ export default function Home({ surveys }: Props) {
       {/* ---------------- Background ---------------- */}
       <div className="absolute inset-0">
         <Image
-          src="/Surveys/main_banner1.png"
+          src="/Surveys/mainBanner.png"
           alt="Banner"
           fill
           className="object-cover brightness-90"
           priority
         />
-        <div className="absolute inset-0 bg-black/40" />
+        {/* <div className="absolute inset-0 bg-black/40" /> */}
       </div>
 
       {/* ---------------- Header ---------------- */}
@@ -317,8 +317,8 @@ export default function Home({ surveys }: Props) {
         <Image
           src="/Surveys/airblue.svg"
           alt="Airblue"
-          width={180}
-          height={40}
+          width={189}
+          height={38}
         />
 
         <div className="flex gap-2">
@@ -329,6 +329,7 @@ export default function Home({ surveys }: Props) {
                 ? "text-white bg-gradient-to-r from-[#1E4560] to-[#3D8EC6]"
                 : "bg-gray-200"
             }`}
+            style={{width:"90px", height:"38px"}}
           >
             English
           </button>
@@ -340,6 +341,7 @@ export default function Home({ surveys }: Props) {
                 ? "text-white bg-gradient-to-r from-[#1E4560] to-[#3D8EC6]"
                 : "bg-gray-200"
             }`}
+            style={{width:"90px", height:"38px"}}
           >
             اردو
           </button>
@@ -347,12 +349,12 @@ export default function Home({ surveys }: Props) {
       </header>
 
       {/* ---------------- Content ---------------- */}
-      <section className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-28 text-center">
-        <h1 className="text-white font-bold text-4xl md:text-5xl">
+      <section className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-28 ">
+        <h1 className="text-white font-bold text-4xl md:text-5xl" style={{fontSize:"55px",fontWeight:"600"}}>
           {t.heading}
         </h1>
 
-        <p className="text-white mt-3 text-xl">{t.tagline}</p>
+        <p className="text-white mt-3 text-xl" style={{fontSize:"30px",fontWeight:"500"}}>{t.tagline}</p>
 
         {/* ---------------- Survey Cards ---------------- */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
@@ -370,13 +372,13 @@ export default function Home({ surveys }: Props) {
                   className="object-cover"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
                 <div className="absolute bottom-3 left-4 right-4">
-                  <h2 className="text-white text-lg font-medium">
+                  <h2 className="text-white text-lg font-medium" style={{ fontSize: "22px", fontWeight: "400", textAlign: "justify" }}>
                     {card.title}
                   </h2>
-                  <p className="text-white text-sm mt-1">
+                  <p className="text-sm" style={{ fontSize: "16px", fontWeight: "400", color: "rgb(209 194 194)", textAlign: "justify" }}>
                     {card.description}
                   </p>
                 </div>
