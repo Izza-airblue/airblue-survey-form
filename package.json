@@ -11,21 +11,25 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/adapter-mssql": "6.6.0",
-    "@prisma/client": "6.6.0",
-    "bootstrap": "5.3.8",
-    "dotenv": "17.2.3",
+       "@prisma/adapter-mssql": "^7.2.0",
+    "@prisma/client": "^7.2.0",
+    "bootstrap": "^5.3.8",
+    "dotenv": "^17.2.3",
     "next": "16.0.8",
     "react": "19.2.1",
     "react-dom": "19.2.1"
   },
   "devDependencies": {
-    "@types/node": "20.19.27",
-    "@types/react": "19.0.0",
-    "@types/react-dom": "19.0.0",
-    "eslint": "9.0.0",
-    "eslint-config-next": "16.0.8",
-    "prisma": "6.6.0",
-    "typescript": "5.4.5"
+      "@tailwindcss/postcss": "^4",
+    "@types/mssql": "^9.1.8",
+    "@types/node": "^20.19.27",
+    "@types/pg": "^8.16.0",
+    "@types/react": "^19",npm 
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+     "prisma": "^7.2.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "typescript": "^5"
   }
 }
