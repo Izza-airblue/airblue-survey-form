@@ -47,8 +47,3 @@ export type SurveyQuestionType = Prisma.SurveyQuestionTypeModel
  * 
  */
 export type SurveyResponse = Prisma.SurveyResponseModel
-/**
- * Model sysdiagrams
- * 
- */
-export type sysdiagrams = Prisma.sysdiagramsModel

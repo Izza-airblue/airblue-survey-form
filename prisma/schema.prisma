@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Survey {
-  SurveyID       Int              @id(map: "PK__Survey__A5481F9D983CFAB5") @default(autoincrement())
+  SurveyID       Int              @id(map: "PK__Survey__A5481F9D7E22C6AD") @default(autoincrement())
   Name           String?          @db.NVarChar(255)
   CreatedOn      DateTime         @db.DateTime
   UpdatedOn      DateTime?        @db.DateTime
@@ -18,7 +18,7 @@ model Survey {
 }
 
 model SurveyAnswer {
-  SurveyAnswerID         Int                   @id(map: "PK__SurveyAn__E5C3DB53C4C6E3DA") @default(autoincrement())
+  SurveyAnswerID         Int                   @id(map: "PK__SurveyAn__E5C3DB538D7911C8") @default(autoincrement())
   SurveyQuestionOptionID Int?
   SurveyReponseID        Int?
   AnswerText             String?               @db.NVarChar(100)
@@ -29,7 +29,7 @@ model SurveyAnswer {
 }
 
 model SurveyQuestion {
-  SurveyQuestionID     Int                    @id(map: "PK__SurveyQu__01A9994FE81ABB22") @default(autoincrement())
+  SurveyQuestionID     Int                    @id(map: "PK__SurveyQu__01A9994F2400FC77") @default(autoincrement())
   QuestionText         String                 @db.NVarChar(255)
   SurveyQuestionTypeID Int?
   SurveyID             Int?
@@ -40,7 +40,7 @@ model SurveyQuestion {
 }
 
 model SurveyQuestionOption {
-  SurveyQuestionOptionID Int             @id(map: "PK__SurveyQu__EC4DD6A703D5E544") @default(autoincrement())
+  SurveyQuestionOptionID Int             @id(map: "PK__SurveyQu__EC4DD6A7928D0425") @default(autoincrement())
   OptionText             String          @db.NVarChar(255)
   SurveyQuestionID       Int?
   SurveyAnswer           SurveyAnswer[]
@@ -48,7 +48,7 @@ model SurveyQuestionOption {
 }
 
 model SurveyQuestionType {
-  SurveyQuestionTypeID Int              @id(map: "PK__SurveyQu__84E16F73B1DEA1B3") @default(autoincrement())
+  SurveyQuestionTypeID Int              @id(map: "PK__SurveyQu__84E16F734B7D47A0") @default(autoincrement())
   QuestionType         String?          @db.NVarChar(10)
   SurveyQuestion       SurveyQuestion[]
 }
@@ -61,18 +61,8 @@ model SurveyResponse {
   Email            String?        @db.NVarChar(50)
   ContactNumber    String?        @db.NVarChar(20)
   FlightNumber     String?        @db.NVarChar(10)
-  Gender           String?        @db.NVarChar(10)
+  Gender           String?        @db.NVarChar(30)
   Occupation       String?        @db.NVarChar(30)
   SurveyAnswer     SurveyAnswer[]
   Survey           Survey?        @relation(fields: [SurveyID], references: [SurveyID], onDelete: NoAction, onUpdate: NoAction, map: "FK__SurveyRes__Surve__0B91BA14")
-}
-
-model sysdiagrams {
-  name         String @db.NVarChar(128)
-  principal_id Int
-  diagram_id   Int    @id(map: "PK__sysdiagr__C2B05B61C6838AEE") @default(autoincrement())
-  version      Int?
-  definition   Bytes?
-
-  @@unique([principal_id, name], map: "UK_principal_name")
 }

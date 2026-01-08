@@ -56,8 +56,7 @@ export const ModelName = {
   SurveyQuestion: 'SurveyQuestion',
   SurveyQuestionOption: 'SurveyQuestionOption',
   SurveyQuestionType: 'SurveyQuestionType',
-  SurveyResponse: 'SurveyResponse',
-  sysdiagrams: 'sysdiagrams'
+  SurveyResponse: 'SurveyResponse'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -139,17 +138,6 @@ export const SurveyResponseScalarFieldEnum = {
 } as const
 
 export type SurveyResponseScalarFieldEnum = (typeof SurveyResponseScalarFieldEnum)[keyof typeof SurveyResponseScalarFieldEnum]
-
-
-export const SysdiagramsScalarFieldEnum = {
-  name: 'name',
-  principal_id: 'principal_id',
-  diagram_id: 'diagram_id',
-  version: 'version',
-  definition: 'definition'
-} as const
-
-export type SysdiagramsScalarFieldEnum = (typeof SysdiagramsScalarFieldEnum)[keyof typeof SysdiagramsScalarFieldEnum]
 
 
 export const SortOrder = {

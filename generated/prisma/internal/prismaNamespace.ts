@@ -389,8 +389,7 @@ export const ModelName = {
   SurveyQuestion: 'SurveyQuestion',
   SurveyQuestionOption: 'SurveyQuestionOption',
   SurveyQuestionType: 'SurveyQuestionType',
-  SurveyResponse: 'SurveyResponse',
-  sysdiagrams: 'sysdiagrams'
+  SurveyResponse: 'SurveyResponse'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -406,7 +405,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "survey" | "surveyAnswer" | "surveyQuestion" | "surveyQuestionOption" | "surveyQuestionType" | "surveyResponse" | "sysdiagrams"
+    modelProps: "survey" | "surveyAnswer" | "surveyQuestion" | "surveyQuestionOption" | "surveyQuestionType" | "surveyResponse"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -806,72 +805,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    sysdiagrams: {
-      payload: Prisma.$sysdiagramsPayload<ExtArgs>
-      fields: Prisma.sysdiagramsFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.sysdiagramsFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$sysdiagramsPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.sysdiagramsFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$sysdiagramsPayload>
-        }
-        findFirst: {
-          args: Prisma.sysdiagramsFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$sysdiagramsPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.sysdiagramsFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$sysdiagramsPayload>
-        }
-        findMany: {
-          args: Prisma.sysdiagramsFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$sysdiagramsPayload>[]
-        }
-        create: {
-          args: Prisma.sysdiagramsCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$sysdiagramsPayload>
-        }
-        createMany: {
-          args: Prisma.sysdiagramsCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        delete: {
-          args: Prisma.sysdiagramsDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$sysdiagramsPayload>
-        }
-        update: {
-          args: Prisma.sysdiagramsUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$sysdiagramsPayload>
-        }
-        deleteMany: {
-          args: Prisma.sysdiagramsDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.sysdiagramsUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        upsert: {
-          args: Prisma.sysdiagramsUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$sysdiagramsPayload>
-        }
-        aggregate: {
-          args: Prisma.SysdiagramsAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateSysdiagrams>
-        }
-        groupBy: {
-          args: Prisma.sysdiagramsGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SysdiagramsGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.sysdiagramsCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SysdiagramsCountAggregateOutputType> | number
-        }
-      }
-    }
   }
 } & {
   other: {
@@ -976,17 +909,6 @@ export const SurveyResponseScalarFieldEnum = {
 export type SurveyResponseScalarFieldEnum = (typeof SurveyResponseScalarFieldEnum)[keyof typeof SurveyResponseScalarFieldEnum]
 
 
-export const SysdiagramsScalarFieldEnum = {
-  name: 'name',
-  principal_id: 'principal_id',
-  diagram_id: 'diagram_id',
-  version: 'version',
-  definition: 'definition'
-} as const
-
-export type SysdiagramsScalarFieldEnum = (typeof SysdiagramsScalarFieldEnum)[keyof typeof SysdiagramsScalarFieldEnum]
-
-
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1027,13 +949,6 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-/**
- * Reference to a field of type 'Bytes'
- */
-export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
     
 
 
@@ -1144,7 +1059,6 @@ export type GlobalOmitConfig = {
   surveyQuestionOption?: Prisma.SurveyQuestionOptionOmit
   surveyQuestionType?: Prisma.SurveyQuestionTypeOmit
   surveyResponse?: Prisma.SurveyResponseOmit
-  sysdiagrams?: Prisma.sysdiagramsOmit
 }
 
 /* Types for Logging */
