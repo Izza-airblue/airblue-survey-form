@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { QuestionWithRelations } from "../types/survey";
 import { RatingValue } from "../components/common/RatingScaleConfig";
-import { SurveyQuestionOption } from "@/generated/prisma/client";
+import { SurveyQuestionOption } from "@prisma/client";
 export function getRatingIcon(optionText: string) {
     switch (optionText.toLowerCase()) {
         case "poor":
