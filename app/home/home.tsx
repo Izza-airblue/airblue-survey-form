@@ -291,7 +291,6 @@ export default function Home({ surveys }: Props) {
     img: surveyImages[s.SurveyID] || "/Surveys/default.png",
     route: `/survey?open=${s.SurveyID}`,
   }));
-
   return (
     <main
       className="relative min-h-screen"
@@ -320,7 +319,6 @@ export default function Home({ surveys }: Props) {
           width={189}
           height={38}
         />
-
         <div className="flex gap-2">
           <button
             onClick={() => setLang("en")}
