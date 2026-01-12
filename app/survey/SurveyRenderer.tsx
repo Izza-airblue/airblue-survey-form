@@ -136,15 +136,18 @@ export default function SurveyRenderer({
 
             {isOpen && (
               <div className="card-body">
-                {survey.SurveyQuestion.map((q) => (
-                  <QuestionRenderer
-                    key={q.SurveyQuestionID}
-                    question={q}
-                    surveyId={survey.SurveyID}
-                    answers={answers}
-                    onAnswerChange={onAnswerChange}
-                  />
-                ))}
+                  {/* The 'row' class is essential for the col-md-6 inside the child to work */}
+                  <div className="row">
+                      {survey.SurveyQuestion.map((q) => (
+                          <QuestionRenderer
+                              key={q.SurveyQuestionID}
+                              question={q}
+                              surveyId={survey.SurveyID}
+                              answers={answers}
+                              onAnswerChange={onAnswerChange}
+                          />
+                      ))}
+                  </div>
               </div>
             )}
           </div>
