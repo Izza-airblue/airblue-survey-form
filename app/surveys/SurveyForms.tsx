@@ -10,12 +10,12 @@ import { RatingValue } from "../components/common/RatingScale";
 type Props = {
   surveysCount: number;
 };
-
+console.log("iamher");
 // Update 1: Numeric IDs
 const surveys = [
-  { id: 1, title: "Drop Us A Message", type: "sales" },
-  { id: 2, title: "General Survey", type: "general" },
-  { id: 3, title: "Meal Survey", type: "meal" },
+  { id: 3, title: "Drop Us A Message", type: "sales" },
+  { id: 1, title: "General Survey", type: "general" },
+  { id: 2, title: "Meal Survey", type: "meal" },
 ];
 
 export default function SurveyForms({ surveysCount }: Props) {

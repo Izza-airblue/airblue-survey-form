@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { QuestionRenderer } from "./QuestionRenderer";
 import type { SurveyWithRelations } from "../types/survey";
 import { CustomerInformation } from "../components/CustomerInformation";
@@ -26,43 +26,23 @@ export type CustomerInfo = {
   FlightNumber?: string;
 };
 
-
-// function validateBeforeSubmit(
-//   customer: Partial<CustomerInfo>,
-// ): string[] {
-//   const errors: string[] = [];
-
-//   if (!customer.Pnr?.trim()) {
-//     errors.push("PNR is required");
-//   }
-
-//   if (!customer.ContactNumber?.trim()) {
-//     errors.push("Contact number is required");
-//   }
-
-//   return errors;
-// }
-
 export function validateBeforeSubmit(
   customer: Partial<CustomerInfo>
 ): string[] {
   const errors: string[] = [];
 
-  // PNR: required + exactly 6 digits
   if (!customer.Pnr?.trim()) {
     errors.push("PNR is required");
   } else if (!/^\d{6}$/.test(customer.Pnr)) {
     errors.push("PNR must be exactly 6 digits");
   }
 
-  // Contact Number: required + numeric + length
   if (!customer.ContactNumber?.trim()) {
     errors.push("Contact number is required");
   } else if (!/^\d{7,15}$/.test(customer.ContactNumber)) {
     errors.push("Contact number must contain only digits (7–15 numbers)");
   }
 
-  // Email: required + valid format
   if (!customer.Email?.trim()) {
     errors.push("Email is required");
   } else if (
@@ -71,17 +51,14 @@ export function validateBeforeSubmit(
     errors.push("Please enter a valid email address");
   }
 
-  // Gender: required
   if (!customer.Gender?.trim()) {
     errors.push("Gender is required");
   }
 
-  // Occupation: required
   if (!customer.Occupation?.trim()) {
     errors.push("Occupation is required");
   }
 
-  // Flight Number: required
   if (!customer.FlightNumber?.trim()) {
     errors.push("Flight number is required");
   }
@@ -105,8 +82,28 @@ export default function SurveyRenderer({
   useEffect(() => {
     if (defaultOpen) {
       setOpenSurvey(defaultOpen);
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
     }
   }, [defaultOpen]);
+
+  // Reorder surveys: Open one goes to index 0, others follow
+  const orderedSurveys = useMemo(() => {
+    if (!openSurvey) return surveys;
+    
+    const active = surveys.find((s) => s.SurveyID.toString() === openSurvey);
+    const others = surveys.filter((s) => s.SurveyID.toString() !== openSurvey);
+
+    return active ? [active, ...others] : surveys;
+  }, [surveys, openSurvey]);
+
+  const toggleSurvey = (key: string) => {
+    if (openSurvey === key) {
+      setOpenSurvey(null);
+    } else {
+      setOpenSurvey(key);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   const onAnswerChange = (payload: {
     surveyId: number;
@@ -130,33 +127,43 @@ export default function SurveyRenderer({
 
     setSubmitting(true);
 
-    await submitSurveys(
-      Object.values(answers).map((a) => ({
-        ...a,
-        ...customer,
-      }))
-    );
-
-    setSubmitting(false);
-    alert("All surveys submitted successfully!");
+    try {
+      await submitSurveys(
+        Object.values(answers).map((a) => ({
+          ...a,
+          ...customer,
+        }))
+      );
+      alert("All surveys submitted successfully!");
+    } catch (error) {
+      alert("Submission failed. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <div className="container py-5">
       <CustomerInformation customer={customer} onChange={setCustomer} />
 
-      {surveys.map((survey) => {
+      {orderedSurveys.map((survey) => {
         const key = survey.SurveyID.toString();
         const isOpen = openSurvey === key;
 
         return (
-          <div key={survey.SurveyID} className="card shadow-sm mb-2">
+          <div 
+            key={survey.SurveyID} 
+            className={`card shadow-sm mb-2 ${isOpen ? "border-2 border-white" : ""}`}
+            style={{ transition: "all 0.3s ease" }}
+          >
             <button
+              type="button"
               className="btn text-start fw-semibold card-header text-white d-flex justify-content-between align-items-center"
-              onClick={() => setOpenSurvey(isOpen ? null : key)}
+              onClick={() => toggleSurvey(key)}
               style={{
                 background:
                   "linear-gradient(130deg, rgba(30, 69, 96, 1), rgba(61, 142, 198, 1))",
+                  border:"1px solid white"
               }}
             >
               {survey.Name}
@@ -165,6 +172,7 @@ export default function SurveyRenderer({
                 height="16"
                 viewBox="0 0 24 24"
                 fill="none"
+                xmlns="http://www.w3.org/2000/svg"
                 style={{
                   transition: "transform 0.3s",
                   transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -182,18 +190,17 @@ export default function SurveyRenderer({
 
             {isOpen && (
               <div className="card-body">
-                  {/* The 'row' class is essential for the col-md-6 inside the child to work */}
-                  <div className="row">
-                      {survey.SurveyQuestion.map((q) => (
-                          <QuestionRenderer
-                              key={q.SurveyQuestionID}
-                              question={q}
-                              surveyId={survey.SurveyID}
-                              answers={answers}
-                              onAnswerChange={onAnswerChange}
-                          />
-                      ))}
-                  </div>
+                <div className="row">
+                  {survey.SurveyQuestion.map((q) => (
+                    <QuestionRenderer
+                      key={q.SurveyQuestionID}
+                      question={q}
+                      surveyId={survey.SurveyID}
+                      answers={answers}
+                      onAnswerChange={onAnswerChange}
+                    />
+                  ))}
+                </div>
               </div>
             )}
           </div>
