@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { MealSurvey } from "../components/MealSurvey";
 import { SalesSurvey } from "../components/SalesSurvey";
@@ -11,59 +11,59 @@ type Props = {
   surveysCount: number;
 };
 
+// Update 1: Numeric IDs
+const surveys = [
+  { id: 1, title: "Drop Us A Message", type: "sales" },
+  { id: 2, title: "General Survey", type: "general" },
+  { id: 3, title: "Meal Survey", type: "meal" },
+];
+
 export default function SurveyForms({ surveysCount }: Props) {
   const searchParams = useSearchParams();
-  const defaultOpen = searchParams.get("open");
-
-  const surveys = [
-    { id: "sales", title: "Drop Us A Message" },
-    { id: "general", title: "General Survey" },
-    { id: "meal", title: "Meal Survey" },
-  ];
-
-  // Track open accordion
-  const [openAccordion, setOpenAccordion] = useState<string | null>(defaultOpen);
-
-  // Track which survey should move to top
-  const [topSurvey, setTopSurvey] = useState<string | null>(defaultOpen);
-
+  // Update 2: State now tracks numeric ID
+  const [openAccordion, setOpenAccordion] = useState<number | null>(null);
   const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
 
-  const toggle = (id: string) => {
+  useEffect(() => {
+    const openParam = searchParams.get("open");
+    if (openParam !== null) {
+      const idFromQuery = Number(openParam);
+      // Check if the ID exists in our survey list
+      if (surveys.some(s => s.id === idFromQuery)) {
+        setOpenAccordion(idFromQuery);
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50);
+      }
+    }
+  }, [searchParams]);
+
+  const toggle = (id: number) => {
     if (openAccordion === id) {
       setOpenAccordion(null);
-      setTopSurvey(null);
     } else {
       setOpenAccordion(id);
-      setTopSurvey(id);
-
-      // Scroll selected survey to top
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
-  // Reorder surveys so selected one appears first
+  // Update 3: Logic to move the open survey to the top
   const orderedSurveys = useMemo(() => {
-    if (!topSurvey) return surveys;
-
-    const top = surveys.find((s) => s.id === topSurvey);
-    const others = surveys.filter((s) => s.id !== topSurvey);
-
-    return top ? [top, ...others] : surveys;
-  }, [topSurvey, surveys]);
+    if (openAccordion === null) return surveys;
+    
+    const top = surveys.find((s) => s.id === openAccordion);
+    const rest = surveys.filter((s) => s.id !== openAccordion);
+    
+    return top ? [top, ...rest] : surveys;
+  }, [openAccordion]);
 
   return (
     <main className="container py-5">
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-9">
-          {orderedSurveys.map(({ id, title }) => (
+          {orderedSurveys.map(({ id, title, type }) => (
             <div
-              key={id}
+              key={id} 
               className={`card shadow-sm mb-2 ${
-                topSurvey === id ? "border border-primary" : ""
+                openAccordion === id ? "border border-primary" : ""
               }`}
             >
               <button
@@ -81,13 +81,9 @@ export default function SurveyForms({ surveysCount }: Props) {
                   height="16"
                   viewBox="0 0 24 24"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
                   style={{
                     transition: "transform 0.3s",
-                    transform:
-                      openAccordion === id
-                        ? "rotate(180deg)"
-                        : "rotate(0deg)",
+                    transform: openAccordion === id ? "rotate(180deg)" : "rotate(0deg)",
                   }}
                 >
                   <path
@@ -102,11 +98,12 @@ export default function SurveyForms({ surveysCount }: Props) {
 
               {openAccordion === id && (
                 <div className="card-body border-top">
-                  {id === "meal" && (
+                  {/* Render based on the 'type' property */}
+                  {type === "meal" && (
                     <MealSurvey ratings={ratings} setRatings={setRatings} />
                   )}
-                  {id === "sales" && <SalesSurvey />}
-                  {id === "general" && (
+                  {type === "sales" && <SalesSurvey />}
+                  {type === "general" && (
                     <GeneralSurvey
                       ratings={ratings}
                       setRatings={setRatings}
