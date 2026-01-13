@@ -66,7 +66,7 @@ export function QuestionRenderer({
         <div className={`${columnClass} mb-4 d-flex flex-column`}>
             <div className="h-100">
                 <label className="fw-bold mb-3 d-block">
-                   {index+'.'}{question.QuestionText}
+                   {index+'. '}{question.QuestionText}
                 </label>
 
                 {renderQuestionInput()}
