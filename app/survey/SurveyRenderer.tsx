@@ -27,17 +27,63 @@ export type CustomerInfo = {
 };
 
 
-function validateBeforeSubmit(
-  customer: Partial<CustomerInfo>,
+// function validateBeforeSubmit(
+//   customer: Partial<CustomerInfo>,
+// ): string[] {
+//   const errors: string[] = [];
+
+//   if (!customer.Pnr?.trim()) {
+//     errors.push("PNR is required");
+//   }
+
+//   if (!customer.ContactNumber?.trim()) {
+//     errors.push("Contact number is required");
+//   }
+
+//   return errors;
+// }
+
+export function validateBeforeSubmit(
+  customer: Partial<CustomerInfo>
 ): string[] {
   const errors: string[] = [];
 
+  // PNR: required + exactly 6 digits
   if (!customer.Pnr?.trim()) {
     errors.push("PNR is required");
+  } else if (!/^\d{6}$/.test(customer.Pnr)) {
+    errors.push("PNR must be exactly 6 digits");
   }
 
+  // Contact Number: required + numeric + length
   if (!customer.ContactNumber?.trim()) {
     errors.push("Contact number is required");
+  } else if (!/^\d{7,15}$/.test(customer.ContactNumber)) {
+    errors.push("Contact number must contain only digits (7–15 numbers)");
+  }
+
+  // Email: required + valid format
+  if (!customer.Email?.trim()) {
+    errors.push("Email is required");
+  } else if (
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.Email)
+  ) {
+    errors.push("Please enter a valid email address");
+  }
+
+  // Gender: required
+  if (!customer.Gender?.trim()) {
+    errors.push("Gender is required");
+  }
+
+  // Occupation: required
+  if (!customer.Occupation?.trim()) {
+    errors.push("Occupation is required");
+  }
+
+  // Flight Number: required
+  if (!customer.FlightNumber?.trim()) {
+    errors.push("Flight number is required");
   }
 
   return errors;

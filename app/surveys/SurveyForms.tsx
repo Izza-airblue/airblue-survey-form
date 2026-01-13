@@ -21,40 +21,51 @@ export default function SurveyForms({ surveysCount }: Props) {
     { id: "meal", title: "Meal Survey" },
   ];
 
-  // State to track which accordion is open
+  // Track open accordion
   const [openAccordion, setOpenAccordion] = useState<string | null>(defaultOpen);
 
-  // State to track which survey should appear on top
+  // Track which survey should move to top
   const [topSurvey, setTopSurvey] = useState<string | null>(defaultOpen);
 
   const [ratings, setRatings] = useState<Record<string, RatingValue>>({});
 
   const toggle = (id: string) => {
     if (openAccordion === id) {
-      // Close the current accordion
       setOpenAccordion(null);
-      setTopSurvey(null); // Reset top survey when closing
+      setTopSurvey(null);
     } else {
-      // Open the clicked accordion and move it to top
       setOpenAccordion(id);
       setTopSurvey(id);
+
+      // Scroll selected survey to top
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     }
   };
 
-  // Reorder surveys: only the open survey comes first
+  // Reorder surveys so selected one appears first
   const orderedSurveys = useMemo(() => {
     if (!topSurvey) return surveys;
+
     const top = surveys.find((s) => s.id === topSurvey);
     const others = surveys.filter((s) => s.id !== topSurvey);
+
     return top ? [top, ...others] : surveys;
-  }, [topSurvey]);
+  }, [topSurvey, surveys]);
 
   return (
     <main className="container py-5">
       <div className="row justify-content-center">
         <div className="col-lg-10 col-xl-9">
           {orderedSurveys.map(({ id, title }) => (
-            <div key={id} className="card shadow-sm mb-2">
+            <div
+              key={id}
+              className={`card shadow-sm mb-2 ${
+                topSurvey === id ? "border border-primary" : ""
+              }`}
+            >
               <button
                 type="button"
                 onClick={() => toggle(id)}
@@ -74,7 +85,9 @@ export default function SurveyForms({ surveysCount }: Props) {
                   style={{
                     transition: "transform 0.3s",
                     transform:
-                      openAccordion === id ? "rotate(180deg)" : "rotate(0deg)",
+                      openAccordion === id
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
                   }}
                 >
                   <path
@@ -94,7 +107,10 @@ export default function SurveyForms({ surveysCount }: Props) {
                   )}
                   {id === "sales" && <SalesSurvey />}
                   {id === "general" && (
-                    <GeneralSurvey ratings={ratings} setRatings={setRatings} />
+                    <GeneralSurvey
+                      ratings={ratings}
+                      setRatings={setRatings}
+                    />
                   )}
                 </div>
               )}

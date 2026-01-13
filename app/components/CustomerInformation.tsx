@@ -31,9 +31,14 @@ export const CustomerInformation = ({
               className="form-control"
               placeholder="Enter your ticket number"
               value={customer.Pnr ?? ""}
-              onChange={(e) =>
-                onChange({ ...customer, Pnr: e.target.value })
-              }
+              inputMode="numeric"
+              maxLength={6}
+              onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, ""); // allow digits only
+                if (value.length <= 6) {
+                  onChange({ ...customer, Pnr: value });
+                }
+              }}
             />
           </div>
 
@@ -41,27 +46,40 @@ export const CustomerInformation = ({
             <label className="form-label fw-semibold">
               Contact No <span className="text-danger">*</span>
             </label>
-            <input
+           <input
               className="form-control"
               placeholder="Enter your contact number"
               value={customer.ContactNumber ?? ""}
-              onChange={(e) =>
-                onChange({ ...customer, ContactNumber: e.target.value })
-              }
+              inputMode="numeric"
+              onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, ""); // digits only
+                onChange({ ...customer, ContactNumber: value });
+              }}
             />
           </div>
 
           <div className="col-md-4">
             <label className="form-label fw-semibold">Email</label>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Enter your email ID"
-              value={customer.Email ?? ""}
-              onChange={(e) =>
-                onChange({ ...customer, Email: e.target.value })
-              }
-            />
+           <input
+                type="email"
+                className={`form-control ${
+                  customer.Email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.Email)
+                    ? "is-invalid"
+                    : ""
+                }`}
+                placeholder="Enter your email ID"
+                value={customer.Email ?? ""}
+                onChange={(e) =>
+                  onChange({ ...customer, Email: e.target.value })
+                }
+              />
+
+              {customer.Email &&
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.Email) && (
+                  <div className="invalid-feedback">
+                    Please enter a valid email address
+                  </div>
+              )}
           </div>
 
           <div className="col-md-4">
