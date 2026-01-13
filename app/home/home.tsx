@@ -104,9 +104,7 @@
 
 // export default function Home({ surveys }: Props) {
 //     const [lang, setLang] = useState<Language>("en");
-//     const router = useRouter();
-
-//     const t = translations[lang];
+//     const router = useRouter()
 
 //     // const cards = [
 //     //     {

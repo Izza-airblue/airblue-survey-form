@@ -103,7 +103,6 @@ export function QuestionRenderer({
                         })}
                     </div>
                 );
-
             case "Dropdown":
                 return (
                     <select
