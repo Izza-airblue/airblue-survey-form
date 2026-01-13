@@ -117,7 +117,7 @@ export default function SurveyRenderer({
     }));
   };
 
-  const handleSubmit = async () => {
+const handleSubmit = async () => {
     const errors = validateBeforeSubmit(customer);
 
     if (errors.length > 0) {
@@ -134,8 +134,27 @@ export default function SurveyRenderer({
           ...customer,
         }))
       );
+      
       alert("All surveys submitted successfully!");
+
+      // --- RESET LOGIC STARTS HERE ---
+      
+      // 1. Clear all question answers
+      setAnswers({});
+      
+      // 2. Clear all customer information fields
+      setCustomer({});
+      
+      // 3. Close any open accordion/survey
+      setOpenSurvey(null);
+      
+      // 4. Scroll back to the top of the page for the next entry
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      // --- RESET LOGIC ENDS HERE ---
+
     } catch (error) {
+      console.error("Submission error:", error);
       alert("Submission failed. Please try again.");
     } finally {
       setSubmitting(false);
