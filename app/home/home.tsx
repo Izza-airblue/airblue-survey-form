@@ -295,16 +295,32 @@ export default function Home({ surveys }: Props) {
       dir={lang === "ur" ? "rtl" : "ltr"}
     >
       {/* ---------------- Background ---------------- */}
-      <div className="absolute inset-0">
-        <Image
-          src="/Surveys/mainBanner.png"
-          alt="Banner"
-          fill
-          className="object-cover brightness-90"
-          priority
-        />
-        {/* <div className="absolute inset-0 bg-black/40" /> */}
-      </div>
+<div className="fixed inset-0 -z-10">
+  {/* Desktop Banner - Hidden on mobile, visible on medium screens and up */}
+  <div className="hidden md:block h-full w-full relative">
+    <Image
+      src="/Surveys/mainBanner.png"
+      alt="Desktop Banner"
+      fill
+      className="object-cover"
+      priority
+    />
+    {/* If you want a subtle overlay on desktop, add one here, otherwise leave it empty */}
+  </div>
+
+  {/* Mobile Banner - Visible on mobile, hidden on medium screens and up */}
+  <div className="block md:hidden h-full w-full relative">
+    <Image
+      src="/Surveys/mobileBanner.png" 
+      alt="Mobile Banner"
+      fill
+      className="object-cover"
+      priority
+    />
+    {/* This overlay ONLY applies to the mobile image */}
+    <div className="absolute inset-0 bg-black/60" />
+  </div>
+</div>
 
       {/* ---------------- Header ---------------- */}
       <header
@@ -374,7 +390,7 @@ export default function Home({ surveys }: Props) {
                   <h2 className="text-white text-lg font-medium" style={{ fontSize: "22px", fontWeight: "400", textAlign: "justify" }}>
                     {card.title}
                   </h2>
-                  <p className="text-sm" style={{ fontSize: "16px", fontWeight: "400", color: "rgb(209 194 194)", textAlign: "justify" }}>
+                  <p className="text-sm" style={{ fontSize: "16px", fontWeight: "400", color: "white", textAlign: "justify" }}>
                     {card.description}
                   </p>
                 </div>
