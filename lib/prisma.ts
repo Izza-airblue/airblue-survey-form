@@ -6,7 +6,7 @@ const sqlConfig = {
   user: process.env.DB_USER!,
   password: process.env.DB_PASSWORD!,
   database: process.env.DB_NAME!,
-  server: process.env.HOST!, // MUST be a string
+  server: process.env.HOST!,
   pool: {
     max: 10,
     min: 0,
@@ -16,6 +16,8 @@ const sqlConfig = {
     encrypt: true,
     trustServerCertificate: true,
   },
+  connectionTimeout: 40000,
+
 };
 
 const adapter = new PrismaMssql(sqlConfig);

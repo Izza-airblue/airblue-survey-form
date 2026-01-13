@@ -78,11 +78,13 @@ type AnswerState = Record<
 >;
 
 export function QuestionRenderer({
+    index,
     question,
     surveyId,
     onAnswerChange,
     answers,
 }: {
+    index : Number
     question: QuestionWithRelations;
     surveyId: number;
     answers: AnswerState;
@@ -100,7 +102,7 @@ export function QuestionRenderer({
             return (
                 <div className="mb-4">
                     <label className="fw-semibold d-block mb-2">
-                        {question.QuestionText}
+                        {index + "."}  {question.QuestionText}
                     </label>
 
                     <div className="d-flex gap-3 flex-wrap">
@@ -142,7 +144,7 @@ export function QuestionRenderer({
         case "Dropdown":
             return (
                 <div className="mb-4">
-                    <label className="fw-semibold">{question.QuestionText}</label>
+                    <label className="fw-semibold">{index + "."}  {question.QuestionText}</label>
 
                     <select className="form-select mt-2" value={answers[question.SurveyQuestionID]?.optionId ?? ""}
                         onChange={(e) =>
@@ -169,7 +171,7 @@ export function QuestionRenderer({
         case "OpenEnded":
             return (
                 <div className="mb-4">
-                    <label className="fw-semibold">{question.QuestionText}</label>
+                    <label className="fw-semibold">{index + "."} {question.QuestionText}</label>
                     <textarea
                         className="form-control mt-2"
                         rows={3}
