@@ -38,11 +38,13 @@ type AnswerState = Record<
 >;
 
 export function QuestionRenderer({
+    index,
     question,
     surveyId,
     onAnswerChange,
     answers,
 }: {
+    index:Number
     question: QuestionWithRelations;
     surveyId: number;
     answers: AnswerState;
@@ -64,7 +66,7 @@ export function QuestionRenderer({
         <div className={`${columnClass} mb-4 d-flex flex-column`}>
             <div className="h-100">
                 <label className="fw-bold mb-3 d-block">
-                    {question.QuestionText}
+                   {index+'.'}{question.QuestionText}
                 </label>
 
                 {renderQuestionInput()}

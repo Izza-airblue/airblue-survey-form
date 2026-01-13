@@ -191,8 +191,9 @@ export default function SurveyRenderer({
             {isOpen && (
               <div className="card-body">
                 <div className="row">
-                  {survey.SurveyQuestion.map((q) => (
+                  {survey.SurveyQuestion.map((q,index) => (
                     <QuestionRenderer
+                      index={index+1}
                       key={q.SurveyQuestionID}
                       question={q}
                       surveyId={survey.SurveyID}
