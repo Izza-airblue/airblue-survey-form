@@ -295,32 +295,31 @@ export default function Home({ surveys }: Props) {
       dir={lang === "ur" ? "rtl" : "ltr"}
     >
       {/* ---------------- Background ---------------- */}
-<div className="fixed inset-0 -z-10">
-  {/* Desktop Banner - Hidden on mobile, visible on medium screens and up */}
-  <div className="hidden md:block h-full w-full relative">
-    <Image
-      src="/Surveys/mainBanner.png"
-      alt="Desktop Banner"
-      fill
-      className="object-cover"
-      priority
-    />
-    {/* If you want a subtle overlay on desktop, add one here, otherwise leave it empty */}
-  </div>
+      {/* The fixed background container */}
+      <div className="fixed inset-0 -z-10 w-full h-[100dvh] min-h-[100dvh] overflow-hidden bg-black">
+        {/* Desktop Version */}
+        <div className="hidden md:block h-full w-full relative">
+          <Image
+            src="/Surveys/mainBanner.png"
+            alt="Desktop Banner"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
 
-  {/* Mobile Banner - Visible on mobile, hidden on medium screens and up */}
-  <div className="block md:hidden h-full w-full relative">
-    <Image
-      src="/Surveys/mobileBanner.png" 
-      alt="Mobile Banner"
-      fill
-      className="object-cover"
-      priority
-    />
-    {/* This overlay ONLY applies to the mobile image */}
-    <div className="absolute inset-0 bg-black/60" />
-  </div>
-</div>
+        {/* Mobile Version */}
+        <div className="block md:hidden h-full w-full relative">
+          <Image
+            src="/Surveys/mobileBanner.png" 
+            alt="Mobile Banner"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+      </div>
 
       {/* ---------------- Header ---------------- */}
       <header

@@ -37,25 +37,40 @@ function LoadingSpinner() {
 
 export default function SurveyPage() {
   return (
-    <div className="relative h-screen w-full">
-      {/* Fixed Background Banner - Shows immediately */}
-      <div className="fixed inset-0 -z-10">
-        <Image
-          src="/Surveys/mainBanner.png"
-          alt="Banner"
-          fill
-          className="object-cover brightness-90"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/60" />
+    /* Change 1: Use min-h-screen and remove h-screen so the page can grow with the form */
+    <div className="relative min-h-[100dvh] w-full bg-black">
+      
+      {/* Fixed Background Banner - Locked to the viewport */}
+      <div className="fixed inset-0 -z-10 h-[100dvh] w-full overflow-hidden">
+        {/* Desktop Banner */}
+        <div className="hidden md:block h-full w-full relative">
+          <Image
+            src="/Surveys/mainBanner.png"
+            alt="Banner"
+            fill
+            className="object-cover brightness-90"
+            priority
+          />
+        </div>
+
+        {/* Mobile Banner - Static and dark */}
+        <div className="block md:hidden h-full w-full relative">
+          <Image
+            src="/Surveys/mobileBanner.png" 
+            alt="Mobile Banner"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Mobile-only dark overlay */}
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
       </div>
 
       {/* Content Area */}
-      <div className="relative flex items-start justify-center min-h-screen pt-10">
+      {/* Change 2: Ensure this flex container doesn't restrict height */}
+      <div className="relative z-10 flex items-start justify-center min-h-screen pt-10 pb-10">
         <div className="w-full max-w-4xl px-4">
-          {/* By putting SurveyList inside Suspense, the background and 
-              spinner show up immediately while Prisma fetches the data.
-          */}
           <Suspense fallback={<LoadingSpinner />}>
             <SurveyList />
           </Suspense>
