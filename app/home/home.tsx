@@ -361,11 +361,13 @@ export default function Home({ surveys }: Props) {
 
       {/* ---------------- Content ---------------- */}
       <section className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-28 ">
-        <h1 className="text-white font-bold text-4xl md:text-5xl" style={{fontSize:"55px",fontWeight:"600"}}>
-          {t.heading}
-        </h1>
+      <h1 className="text-white font-bold text-2xl sm:text-4xl md:text-6xl lg:text-8xl text-center md:text-left leading-tight">
+        {t.heading}
+      </h1>
 
-        <p className="text-white mt-3 text-xl" style={{fontSize:"30px",fontWeight:"500"}}>{t.tagline}</p>
+      <p className="text-white mt-3 text-base sm:text-lg md:text-xl lg:text-2xl text-center md:text-left opacity-90 max-w-2xl mx-auto md:mx-0">
+        {t.tagline}
+      </p>
 
         {/* ---------------- Survey Cards ---------------- */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
